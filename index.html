@@ -597,6 +597,14 @@ section{position:relative;z-index:2}
     .modcard .meta{display:flex;gap:7px;flex-wrap:wrap}
     .modcard .meta span{font-size:.74rem;font-weight:600;background:var(--paper-2);border:1px solid var(--line);color:var(--ink-soft);padding:3px 10px;border-radius:999px}
     .modcard .meta .ects{background:var(--gold-wash);border-color:transparent;color:#7a571a}
+    .modcard.go-card{cursor:pointer}
+    .modcard.live::before{background:linear-gradient(90deg,var(--gold-soft),var(--gold))}
+    .modcard .mfoot{display:flex;align-items:center;justify-content:space-between;margin-top:15px;padding-top:13px;border-top:1px dashed var(--line)}
+    .modcard .mgo{display:inline-flex;align-items:center;gap:7px;font-size:.85rem;font-weight:700;color:var(--teal-700)}
+    .modcard.live .mgo{color:#8a6420}
+    .modcard .mgo .ar{transition:.2s}
+    .modcard.go-card:hover .mgo .ar{transform:translateX(4px)}
+    .modcard .msoon{font-size:.8rem;font-weight:600;color:var(--ink-faint)}
     .timeline{margin:6px 0 4px}
     .timeline .tlbar{display:flex;height:48px;border-radius:11px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
     .timeline .seg{display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:700;color:#fff;border-right:2px solid var(--paper);white-space:nowrap;padding:0 6px;letter-spacing:.01em}
@@ -659,27 +667,31 @@ section{position:relative;z-index:2}
       <!-- Module -->
       <div class="block" id="s-module">
         <h3>Die vier Module</h3>
-        <p>Worum es in jedem Modul geht – und worauf es mit Blick auf die Prüfungen besonders ankommt.</p>
+        <p>Worum es in jedem Modul kurz geht – <b>tippe auf ein Modul</b> für die ausführliche Modulseite mit allen Modulwochen, dem Aufbau, den Merkmalen und konkreten Lerntipps. Aktuell vollständig ausgearbeitet: <b>Modul 5</b>.</p>
         <div class="mods-grid">
-          <div class="modcard">
+          <div class="modcard live go-card" onclick="go('m05')">
             <div class="mh"><span class="mno">M5</span><h4>Wachstum, Gewebe, Organ</h4></div>
-            <p>Struktur &amp; Funktion der Gewebe, zelluläre Proliferation, Differenzierung &amp; Apoptose, Fehlsteuerung des Wachstums als Krankheitsursache sowie Embryologie (die drei Keimblätter).</p>
-            <div class="meta"><span class="ects">5 ECTS</span><span>4 Wochen</span><span>SMPP: Biochemie &amp; Biologie</span></div>
+            <p>Die fünf Grundgewebe (Epithel-, Binde-/Stütz-, Fett-, Muskel-, Nervengewebe), Synthese &amp; Abbau der extrazellulären Matrix, Zellzyklus, Differenzierung &amp; Apoptose – und die Embryologie von der Eizelle bis zu den drei Keimblättern.</p>
+            <div class="meta"><span class="ects">5 ECTS</span><span>4 Modulwochen</span><span>SMPP: Biochemie &amp; Biologie</span></div>
+            <div class="mfoot"><span class="mgo">Zur Modulseite <span class="ar">→</span></span></div>
           </div>
-          <div class="modcard">
+          <div class="modcard go-card" onclick="go('soon')">
             <div class="mh"><span class="mno">M6</span><h4>Gesundheit und Gesellschaft</h4></div>
             <p>Gesellschaftliche, ökonomische &amp; demografische Einflüsse auf Gesundheit, Biographie &amp; Persönlichkeit, psychosoziale Faktoren sowie soziale und geschlechtsspezifische Ungleichheit im ärztlichen Alltag.</p>
-            <div class="meta"><span class="ects">5 ECTS</span><span>3 Wochen</span><span>SMPP: Soziologie / MedSoz</span></div>
+            <div class="meta"><span class="ects">5 ECTS</span><span>3 Modulwochen</span><span>SMPP: Soziologie / MedSoz</span></div>
+            <div class="mfoot"><span class="msoon">Modulseite folgt</span></div>
           </div>
-          <div class="modcard">
+          <div class="modcard go-card" onclick="go('soon')">
             <div class="mh"><span class="mno">M7</span><h4>Wissenschaftliches Arbeiten I</h4></div>
             <p>Forschungsfelder &amp; Studienarten, der Forschungsprozess, Methoden der Datenerhebung und Statistik. Kernstück ist das eigene kleine Wissenschaftsprojekt („Dies scientiae").</p>
-            <div class="meta"><span class="ects">6 ECTS</span><span>3 Wochen</span><span>v. a. MC-Klausur</span></div>
+            <div class="meta"><span class="ects">6 ECTS</span><span>3 Modulwochen</span><span>v. a. MC-Klausur</span></div>
+            <div class="mfoot"><span class="msoon">Modulseite folgt</span></div>
           </div>
-          <div class="modcard">
+          <div class="modcard go-card" onclick="go('soon')">
             <div class="mh"><span class="mno">M8</span><h4>Blut- und Immunsystem</h4></div>
             <p>Makro- &amp; mikroskopischer Aufbau und Funktion von Blut und Immunsystem, Normalbefunde in Anamnese &amp; Untersuchung sowie ausgewählte Erkrankungen und ihre Diagnostik.</p>
-            <div class="meta"><span class="ects">6 ECTS</span><span>4 Wochen</span><span>SMPP: Biochemie &amp; Anatomie</span></div>
+            <div class="meta"><span class="ects">6 ECTS</span><span>4 Modulwochen</span><span>SMPP: Biochemie &amp; Anatomie</span></div>
+            <div class="mfoot"><span class="msoon">Modulseite folgt</span></div>
           </div>
         </div>
       </div>
@@ -1040,6 +1052,331 @@ section{position:relative;z-index:2}
   </footer>
 </div><!-- /sem2 -->
 
+<!-- ===================== MODUL 5 ===================== -->
+<div id="m05" class="view">
+  <div class="wrap">
+    <div class="crumb"><a onclick="go('home')">Startseite</a> <span>›</span> <a onclick="go('sem2')">2. Semester</a> <span>›</span> <b>Modul 5</b></div>
+  </div>
+
+  <header class="wrap det-hero">
+    <span class="det-tag"><span class="pip" style="width:6px;height:6px;border-radius:50%;background:currentColor"></span> Modul 5 · 2. Semester</span>
+    <h1>Wachstum, Gewebe, Organ</h1>
+    <p class="lead">Das große Histologie- und Embryologie-Modul des 2. Semesters. Es spannt den Bogen vom einzelnen Gewebe über das Zusammenspiel in ganzen Organen bis zur Entwicklung des Menschen aus einer einzigen Zelle – der befruchteten Eizelle.</p>
+    <div class="callout">
+      <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M8 11h6M11 8v6"/></svg></div>
+      <div><b>Dein wichtigstes Werkzeug heißt Mikroskop.</b>
+        <p>M5 lebt von der Histologie. Wer früh und regelmäßig mit dem virtuellen Mikroskop der Charité und den Amboss-Videos übt, hat es in den Kursen, in der SMPP und in der MC-Klausur deutlich leichter. Alle Tools findest du weiter unten.</p></div>
+    </div>
+  </header>
+
+  <style>
+    /* ---- Grundgewebe-Kacheln ---- */
+    .gtissues{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:12px;margin-top:8px}
+    .gt{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:17px 16px 15px;transition:.2s}
+    .gt:hover{box-shadow:var(--shadow);border-color:var(--line-strong);transform:translateY(-2px)}
+    .gt .gi{width:36px;height:36px;border-radius:10px;background:var(--teal-100);color:var(--teal-700);display:grid;place-items:center;margin-bottom:11px}
+    .gt .gi svg{width:19px;height:19px}
+    .gt b{font-size:.99rem;font-family:var(--serif);font-weight:500;letter-spacing:-.1px}
+    .gt small{display:block;color:var(--ink-soft);font-size:.83rem;margin-top:3px;line-height:1.45}
+    /* ---- Lernziel-Liste ---- */
+    .lz{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:10px}
+    .lz li{display:flex;gap:12px;align-items:flex-start;font-size:.96rem;color:var(--ink-soft)}
+    .lz li .ck{flex:0 0 auto;width:23px;height:23px;border-radius:7px;background:var(--teal-100);color:var(--teal-700);display:grid;place-items:center;margin-top:1px}
+    .lz li .ck svg{width:13px;height:13px}
+    /* ---- Modulwochen ---- */
+    .weeks{display:grid;gap:14px}
+    .mw{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.2s;display:grid;grid-template-columns:86px 1fr}
+    .mw:hover{box-shadow:var(--shadow);border-color:var(--line-strong)}
+    .mw-no{display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;padding:18px 10px;text-align:center}
+    .mw-no .wk{font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;opacity:.9}
+    .mw-no .nn{font-family:var(--serif);font-size:2.1rem;line-height:1;margin-top:2px}
+    .mw.w1 .mw-no{background:#C0608B}.mw.w2 .mw-no{background:#3E8CBE}
+    .mw.w3 .mw-no{background:#56A98B}.mw.w4 .mw-no{background:#C49A2B}
+    .mw-body{padding:18px 20px;min-width:0}
+    .mw-body .mw-h{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px}
+    .mw-body h4{font-family:var(--serif);font-weight:500;font-size:1.24rem;margin:0;letter-spacing:-.2px}
+    .mw-pol{font-size:.73rem;font-weight:700;background:var(--gold-wash);color:#7a571a;padding:4px 11px;border-radius:999px}
+    .mw-tags{display:flex;flex-wrap:wrap;gap:6px}
+    .mw-tags span{font-size:.78rem;background:var(--paper-2);border:1px solid var(--line);color:var(--ink-soft);padding:4px 10px;border-radius:8px}
+    @media(max-width:560px){.mw{grid-template-columns:60px 1fr}.mw-no .nn{font-size:1.6rem}.mw-body{padding:16px}}
+    /* ---- Lehrformate ---- */
+    .formats{display:flex;flex-wrap:wrap;gap:9px;margin-top:6px}
+    .formats span{display:inline-flex;align-items:center;gap:9px;font-size:.86rem;font-weight:600;background:var(--card);border:1px solid var(--line);color:var(--ink);padding:9px 15px;border-radius:999px}
+    .formats span small{color:var(--ink-faint);font-weight:500}
+    .formats span .fd{width:8px;height:8px;border-radius:50%;background:var(--teal-500);flex:0 0 auto}
+    /* ---- Tool-Karten ---- */
+    .tools{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+    .tool{display:block;border-radius:18px;padding:27px;color:#EDE7D9;cursor:pointer;transition:.22s;box-shadow:var(--shadow)}
+    .tool:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+    .tool.scope{background:linear-gradient(135deg,#13453E,#0E3531)}
+    .tool.amboss{background:linear-gradient(135deg,#8A6420,#5C410E)}
+    .tool .ti{width:48px;height:48px;border-radius:13px;background:rgba(217,178,90,.18);color:var(--gold-soft);display:grid;place-items:center;margin-bottom:17px}
+    .tool.amboss .ti{background:rgba(255,255,255,.15);color:#F6ECD2}
+    .tool .ti svg{width:24px;height:24px}
+    .tool .badge{display:inline-block;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--gold-soft);margin-bottom:9px}
+    .tool.amboss .badge{color:#F6ECD2}
+    .tool h4{font-family:var(--serif);font-weight:500;font-size:1.4rem;margin:0 0 9px;color:#fff;letter-spacing:-.3px}
+    .tool p{margin:0 0 17px;font-size:.93rem;color:#CBD7D1;line-height:1.55}
+    .tool.amboss p{color:#EFE4CB}
+    .tool .turl{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.92rem;color:#fff}
+    .tool .turl .ar{transition:.2s}
+    .tool:hover .turl .ar{transform:translateX(4px)}
+    @media(max-width:680px){.tools{grid-template-columns:1fr}}
+    /* ---- weitere Ressourcen ---- */
+    .reslist{display:grid;grid-template-columns:repeat(auto-fill,minmax(282px,1fr));gap:10px;margin-top:18px}
+    .res{display:flex;gap:13px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:15px 16px}
+    a.res{cursor:pointer;transition:.2s}
+    a.res:hover{box-shadow:var(--shadow);border-color:var(--line-strong);transform:translateY(-2px)}
+    .res .ri{flex:0 0 auto;width:35px;height:35px;border-radius:9px;background:var(--paper-2);color:var(--teal-700);display:grid;place-items:center}
+    .res .ri svg{width:18px;height:18px}
+    .res b{font-size:.93rem;display:block;line-height:1.3}
+    .res small{color:var(--ink-soft);font-size:.82rem;display:block;margin-top:2px}
+    .res .free{font-size:.64rem;font-weight:700;color:var(--teal-700);background:var(--teal-100);padding:2px 7px;border-radius:6px;margin-left:7px;vertical-align:middle;letter-spacing:.02em}
+    /* ---- Material-CTA ---- */
+    .m5cta{display:flex;gap:13px;flex-wrap:wrap;margin-top:6px}
+    .m5cta .btn-teal{background:var(--teal-700);color:#fff}
+    .m5cta .btn-teal:hover{background:var(--teal-900);transform:translateY(-2px);box-shadow:var(--shadow)}
+    .m5cta .btn-line{border-color:var(--line-strong);color:var(--teal-900);background:var(--card)}
+    .m5cta .btn-line:hover{border-color:var(--teal-500);box-shadow:var(--shadow)}
+  </style>
+
+  <div class="wrap det-body">
+    <!-- TOC -->
+    <aside class="toc">
+      <div class="tt">Auf dieser Seite</div>
+      <a href="#m5-ueber">Worum geht es?</a>
+      <a href="#m5-wochen">Die 4 Modulwochen</a>
+      <a href="#m5-aufbau">Aufbau &amp; Merkmale</a>
+      <a href="#m5-lernen">So lernst du am besten</a>
+      <a href="#m5-tools">Womit du lernst</a>
+      <a href="#m5-tipps">Lerntipps &amp; Fallstricke</a>
+      <a href="#m5-material">Material &amp; Prüfung</a>
+    </aside>
+
+    <main class="det-main">
+
+      <!-- Worum geht es -->
+      <div class="block" id="m5-ueber">
+        <h3>Worum geht es in Modul 5?</h3>
+        <p>Der menschliche Körper besteht aus Organen, die sich aus wenigen <b>Grundgeweben</b> zusammensetzen – und alle gehen letztlich auf eine einzige Zelle zurück: die befruchtete Eizelle. Modul 5 zeigt diesen Bogen Schritt für Schritt: wie Zellen zu Geweben werden, wie Gewebe in Organen zusammenwirken und wie aus einer Zelle ein ganzer Organismus entsteht.</p>
+
+        <p style="font-weight:600;color:var(--teal-900);margin:26px 0 0">Die fünf Grundgewebe</p>
+        <div class="gtissues">
+          <div class="gt"><div class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 15h18M10 4v16"/></svg></div><b>Epithelgewebe</b><small>Oberflächen, Drüsen &amp; Sinnesepithel</small></div>
+          <div class="gt"><div class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12h16M12 4v16M6 6l12 12M18 6 6 18"/></svg></div><b>Binde- &amp; Stützgewebe</b><small>Knorpel, Knochen &amp; Matrix</small></div>
+          <div class="gt"><div class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3s6 7 6 11a6 6 0 1 1-12 0c0-4 6-11 6-11z"/></svg></div><b>Fettgewebe</b><small>Speicher &amp; Polster</small></div>
+          <div class="gt"><div class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 4c4 2 4 6 0 8 4 2 4 6 0 8M18 4c-4 2-4 6 0 8-4 2-4 6 0 8"/></svg></div><b>Muskelgewebe</b><small>Quergestreift, glatt &amp; Herz</small></div>
+          <div class="gt"><div class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="6" cy="12" r="3"/><path d="M9 12h10M15 9l3 3-3 3"/></svg></div><b>Nervengewebe</b><small>Schwerpunkt peripherer Nerv</small></div>
+        </div>
+
+        <p style="font-weight:600;color:var(--teal-900);margin:28px 0 0">Was du am Ende können sollst</p>
+        <ul class="lz">
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg></span>Struktur &amp; Funktion der verschiedenen Gewebe erläutern.</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg></span>Molekulare Prinzipien von Proliferation, Differenzierung, Morphogenese &amp; Apoptose erklären.</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg></span>Fehlsteuerung des Wachstums als Krankheitsursache an Beispielen erläutern.</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg></span>Wachstum, Umbau &amp; Abbau von Gewebe in verschiedenen Lebensphasen einordnen.</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg></span>Die Bedeutung von Umweltfaktoren &amp; eigenem Verhalten für pathologische Gewebeveränderungen einschätzen.</li>
+        </ul>
+      </div>
+
+      <!-- Modulwochen -->
+      <div class="block" id="m5-wochen">
+        <h3>Die vier Modulwochen</h3>
+        <p>Modul 5 ist in vier Modulwochen gegliedert – jede mit einem eigenen POL-Fall als rotem Faden. Die ersten beiden Wochen drehen sich um die Gewebe, danach geht es um Zellteilung &amp; Differenzierung und schließlich um die Embryologie.</p>
+        <div class="weeks">
+          <div class="mw w1">
+            <div class="mw-no"><span class="wk">Woche</span><span class="nn">1</span></div>
+            <div class="mw-body">
+              <div class="mw-h"><h4>Grundgewebe I</h4><span class="mw-pol">POL 05-1 · „Klein und zerbrechlich"</span></div>
+              <div class="mw-tags"><span>Was ist ein Gewebe?</span><span>Epithelgewebe</span><span>Binde- &amp; Stützgewebe</span><span>Knorpel &amp; Knochen (Osteon)</span><span>extrazelluläre Matrix · Kollagen I &amp; IV</span><span>Vitamin C</span><span>Knochenstoffwechsel &amp; Frakturheilung</span><span>normales Wachstum · Perzentilen</span><span>Histo-Kurse I &amp; II</span></div>
+            </div>
+          </div>
+          <div class="mw w2">
+            <div class="mw-no"><span class="wk">Woche</span><span class="nn">2</span></div>
+            <div class="mw-body">
+              <div class="mw-h"><h4>Grundgewebe II</h4><span class="mw-pol">POL 05-2 · „Hilfe, mein Bein wird dicker"</span></div>
+              <div class="mw-tags"><span>Muskelgewebe · Sarkomer</span><span>Nervengewebe · Schwann-Zellen</span><span>Ranvier-Schnürring</span><span>Blut- &amp; Lymphgefäße</span><span>Vaskulo- &amp; Angiogenese</span><span>Metaplasie &amp; Dysplasie</span><span>Stofftransport · Osmose</span><span>Pharmakokinetik</span><span>der Magen</span><span>Barrett-Ösophagus</span><span>Histo-Kurs III</span></div>
+            </div>
+          </div>
+          <div class="mw w3">
+            <div class="mw-no"><span class="wk">Woche</span><span class="nn">3</span></div>
+            <div class="mw-body">
+              <div class="mw-h"><h4>Zelluläre Differenzierung</h4><span class="mw-pol">POL 05-3 · „Was hat mein Baby da am Nacken?"</span></div>
+              <div class="mw-tags"><span>Zellzyklus · Cycline / CDK</span><span>Checkpoints · Rb</span><span>Proto-Onkogene &amp; Tumorsuppressoren · p53</span><span>Epigenetik</span><span>Apoptose vs. Nekrose</span><span>Mamma · TDLE · HER-2neu · BRCA</span><span>Ultraschall-Grundlagen</span><span>Meiose &amp; Keimzellbildung</span><span>Darm-Polyp · venöse Insuffizienz</span></div>
+            </div>
+          </div>
+          <div class="mw w4">
+            <div class="mw-no"><span class="wk">Woche</span><span class="nn">4</span></div>
+            <div class="mw-body">
+              <div class="mw-h"><h4>Allgemeine Embryologie</h4><span class="mw-pol">POL 05-4 · „Was für eine Überraschung"</span></div>
+              <div class="mw-tags"><span>Befruchtung &amp; Implantation</span><span>Gastrulation · Keimblätter</span><span>Ekto-, Meso- &amp; Endoderm</span><span>Plazenta · Eihäute · Zwillinge</span><span>Morphogenese &amp; Stammzellen</span><span>Teratologie · Thalidomid · Valproinsäure</span><span>fetales Alkoholsyndrom</span><span>Embryo-Praktikum · Huhn &amp; Maus</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Aufbau & Merkmale -->
+      <div class="block" id="m5-aufbau">
+        <h3>Aufbau &amp; Merkmale</h3>
+        <p>Modul 5 startet mit einer gemeinsamen Einführung und endet mit der Abschlussbesprechung. Dazwischen wechseln sich verschiedene Unterrichtsformate ab.</p>
+
+        <div class="dates">
+          <div class="dcard"><div class="dl">Einführung</div><div class="dv">Mo, 13. April 2026</div><div style="font-size:.84rem;color:var(--ink-soft);margin-top:4px">08:15 Uhr · Hörsaal 22 (Innere Medizin)</div></div>
+          <div class="dcard"><div class="dl">Abschluss</div><div class="dv">Mi, 27. Mai 2026</div><div style="font-size:.84rem;color:var(--ink-soft);margin-top:4px">11:00 Uhr · Hörsaal 33 (Friedrich Kopsch)</div></div>
+        </div>
+
+        <p style="font-weight:600;color:var(--teal-900);margin:28px 0 0">Unterrichtsformate</p>
+        <div class="formats">
+          <span><span class="fd"></span>POL <small>· 4 Fälle</small></span>
+          <span><span class="fd"></span>Fachvorlesungen</span>
+          <span><span class="fd"></span>Seminare <small>· Fach &amp; interdisziplinär</small></span>
+          <span><span class="fd"></span>Histologiekurse <small>· Mikroskopie I–III</small></span>
+          <span><span class="fd"></span>freies Mikroskopieren</span>
+          <span><span class="fd"></span>Praktika <small>· Meiose, Embryologie</small></span>
+          <span><span class="fd"></span>KIT</span>
+          <span><span class="fd"></span>Untersuchungskurse</span>
+          <span><span class="fd"></span>Patientenvorstellungen</span>
+        </div>
+
+        <p style="font-weight:600;color:var(--teal-900);margin:28px 0 14px">Was dieses Modul ausmacht</p>
+        <dl class="rows">
+          <div class="row"><dt>Histologie-lastig</dt><dd>Drei Mikroskopie-Praktika plus freies Mikroskopieren – das praktische Herz des Moduls. Für alle Praktika gilt Kittelpflicht.</dd></div>
+          <div class="row"><dt>Ein roter Faden</dt><dd>Vom Molekül (extrazelluläre Matrix, Kollagen) über die Zelle (Zellzyklus) zum Gewebe, zum Organ (Magen, Mamma) bis zum Embryo.</dd></div>
+          <div class="row"><dt>Interdisziplinär</dt><dd>Anatomie, Biochemie, Pathologie, Pharmakologie, Physik (Ultraschall), Pädiatrie &amp; Humangenetik greifen ineinander.</dd></div>
+          <div class="row"><dt>Klinischer Bezug</dt><dd>Vier Patientenvorstellungen: Barrett-Ösophagus, Darm-Polyp, venöse Insuffizienz und fetales Alkoholsyndrom.</dd></div>
+          <div class="row"><dt>Fundament</dt><dd>Legt die Basis für alle Organmodule (M9–M16) sowie für M17 „Systemische Störungen" und M19 „Neoplasie".</dd></div>
+        </dl>
+      </div>
+
+      <!-- So lernst du -->
+      <div class="block" id="m5-lernen">
+        <h3>So lernst du am besten</h3>
+        <p>M5 hat drei sehr unterschiedliche Lernfelder – jedes will anders angegangen werden.</p>
+        <div class="tips">
+          <div class="tip">
+            <h5>🔬 Histologie – der Kern</h5>
+            <ul>
+              <li>Nicht auswendig lernen, sondern <b>aktiv mikroskopieren</b>: Strukturen aufsuchen, benennen, skizzieren.</li>
+              <li>Virtuelles Mikroskop der Charité &amp; Amboss-Videos parallel zu den Kursen nutzen.</li>
+              <li>Die drei Histo-Kurse direkt nachbereiten, solange die Bilder frisch sind.</li>
+            </ul>
+          </div>
+          <div class="tip">
+            <h5>🧬 Biochemie &amp; Zellbiologie</h5>
+            <ul>
+              <li>Schwerpunkte: Kollagensynthese &amp; extrazelluläre Matrix, Zellzyklus, Onkogene/Tumorsuppressoren, Apoptose.</li>
+              <li>Genau diese Themen sind <b>SMPP-relevant</b> – früh dranbleiben.</li>
+              <li>Mit den vorhandenen Ausarbeitungen lernen (sehr gute Grundlage).</li>
+            </ul>
+          </div>
+          <div class="tip">
+            <h5>👶 Embryologie</h5>
+            <ul>
+              <li>Abstrakt – deshalb mit <b>Atlas &amp; Videos visualisieren</b>.</li>
+              <li>Schritt für Schritt: Befruchtung → Gastrulation → Keimblätter → Organe.</li>
+              <li>embryology.ch und der Drews-Taschenatlas helfen enorm.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="block" id="m5-tools">
+        <h3>Womit du lernst</h3>
+        <p>Für Modul 5 gibt es zwei Werkzeuge, die du unbedingt nutzen solltest – plus ein paar bewährte Ergänzungen.</p>
+        <div class="tools">
+          <a class="tool scope" href="https://charite.smartzoom.com/" target="_blank" rel="noopener">
+            <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M8 11h6M11 8v6"/></svg></div>
+            <span class="badge">Pflicht-Werkzeug · Histologie</span>
+            <h4>Virtuelles Mikroskop der Charité</h4>
+            <p>Digitalisierte Originalpräparate aus Anatomie, Pathologie &amp; Neuropathologie – genau die Schnitte, die in den Histo-Kursen besprochen werden. Zeit- und ortsunabhängig am Laptop, Tablet oder Handy. Login nur mit deiner <b>@charite.de</b>-Adresse.</p>
+            <span class="turl">charite.smartzoom.com <span class="ar">→</span></span>
+          </a>
+          <a class="tool amboss" href="https://www.youtube.com/playlist?list=PLt75uzSS5bNwoFW-ya58lKBibgoHP7IlK" target="_blank" rel="noopener">
+            <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z"/></svg></div>
+            <span class="badge">Kostenlos auf YouTube</span>
+            <h4>Amboss „Histotrainer"</h4>
+            <p>Kurze Erklärvideos zur mikroskopischen Anatomie der wichtigsten Gewebe &amp; Organe – ideal zur Vor- und Nachbereitung der Mikroskopie und zum Wiederholen vor der Prüfung. Frei auf dem AMBOSS-DE-YouTube-Kanal.</p>
+            <span class="turl">Zur Histotrainer-Playlist <span class="ar">→</span></span>
+          </a>
+        </div>
+
+        <div class="reslist">
+          <a class="res" href="https://www.embryology.ch/" target="_blank" rel="noopener"><div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div><div><b>embryology.ch <span class="free">kostenlos</span></b><small>Vollständiges Embryologie-Lernportal, offiziell empfohlen.</small></div></a>
+          <a class="res" href="https://www.youtube.com/channel/UCTWK3_vkUiWq3VnU2n5hpPA" target="_blank" rel="noopener"><div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4l14 8-14 8z"/></svg></div><div><b>AMBOSS DE · YouTube <span class="free">kostenlos</span></b><small>Über 250 freie Erklärvideos zu vielen Themen.</small></div></a>
+          <div class="res"><div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19V5a2 2 0 012-2h12v18H6a2 2 0 01-2-2z"/><path d="M8 3v16"/></svg></div><div><b>Lüllmann-Rauch · Histologie</b><small>Das Standardwerk für die Histologie.</small></div></div>
+          <div class="res"><div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19V5a2 2 0 012-2h12v18H6a2 2 0 01-2-2z"/><path d="M8 3v16"/></svg></div><div><b>Löffler/Petrides · Biochemie</b><small>Für Matrix, Kollagen, Zellzyklus &amp; Stoffwechsel.</small></div></div>
+          <div class="res"><div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19V5a2 2 0 012-2h12v18H6a2 2 0 01-2-2z"/><path d="M8 3v16"/></svg></div><div><b>Drews · Taschenatlas Embryologie</b><small>Schritt-für-Schritt-Bilder der Entwicklung.</small></div></div>
+          <a class="res" href="https://lehre.charite.de" target="_blank" rel="noopener"><div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg></div><div><b>Moodle · lehre.charite.de</b><small>Skripte, POL-Material &amp; Kursunterlagen.</small></div></a>
+        </div>
+      </div>
+
+      <!-- Lerntipps & Fallstricke -->
+      <div class="block" id="m5-tipps">
+        <h3>Lerntipps &amp; Fallstricke</h3>
+        <p>Ein paar Dinge, die in M5 erfahrungsgemäß den Unterschied machen:</p>
+        <div class="tips">
+          <div class="tip">
+            <h5>⏱️ Früh mit Histologie anfangen</h5>
+            <ul>
+              <li>Sie wird oft unterschätzt – es sind viele Präparate.</li>
+              <li>Wer ab Woche 1 regelmäßig mikroskopiert, hat es im Testat und in der Prüfung leicht.</li>
+            </ul>
+          </div>
+          <div class="tip">
+            <h5>🥼 Kittelpflicht</h5>
+            <ul>
+              <li>Zu allen Praktika gehören weißer Kittel &amp; Namensschild.</li>
+              <li>Für die U-Kurse zusätzlich die Untersuchungsinstrumente.</li>
+            </ul>
+          </div>
+          <div class="tip">
+            <h5>🧩 POL als roter Faden</h5>
+            <ul>
+              <li>Die vier POL-Fälle strukturieren die Wochen.</li>
+              <li>Nutze sie, um Vorlesungs- und Seminarinhalte zu verknüpfen.</li>
+            </ul>
+          </div>
+          <div class="tip">
+            <h5>🩺 Patientenvorstellungen ernst nehmen</h5>
+            <ul>
+              <li>Barrett-Ösophagus, Darm-Polyp &amp; Co. liefern typische MC-Fragen.</li>
+              <li>Sie verknüpfen die Theorie mit echten Fällen – ideal zum Verstehen.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout" style="margin-top:30px">
+          <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 L20 7 V13 C20 17 16 20 12 21 C8 20 4 17 4 13 V7 Z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <div><b>M5 zahlt direkt auf beide Prüfungen ein.</b>
+            <p>In der SMPP wird Modul 5 in der Biochemie geprüft und bildet die Grundlage für das Wahlfach Biologie. In der MC-Abschlussklausur taucht es ebenfalls auf. Gründliches Lernen lohnt sich hier also doppelt.</p></div>
+        </div>
+      </div>
+
+      <!-- Material & Prüfung -->
+      <div class="block" id="m5-material">
+        <h3>Material &amp; Prüfung</h3>
+        <p>Alle Ausarbeitungen, Anki-Decks, Fragenkataloge und Protokolle für das 2. Semester – inklusive der M5-relevanten Biochemie- und Biologie-Unterlagen – liegen gebündelt im Materialbereich des Semesters.</p>
+        <div class="m5cta">
+          <a class="btn btn-teal" onclick="goTo('sem2','s-material')">📁 Lernmaterial des 2. Semesters →</a>
+          <a class="btn btn-line" onclick="goTo('sem2','s-pruefungen')">Prüfungen (SMPP &amp; MC) ansehen →</a>
+        </div>
+      </div>
+
+      <div style="text-align:center;padding:10px 0 30px">
+        <a class="btn btn-gold" onclick="go('sem2')" style="color:#241a06">← Zurück zum 2. Semester</a>
+      </div>
+    </main>
+  </div>
+
+  <footer class="foot">
+    <div class="wrap foot-bot" style="border:none">
+      <span>© 2026 MSC Charité · Von Studierenden, für Studierende</span>
+      <span class="motto" style="font-size:1.05rem;margin:0">مَن طَلَبَ العِلمَ وَجَدَ النور</span>
+    </div>
+  </footer>
+</div><!-- /m05 -->
+
 <!-- ===================== PLACEHOLDER ===================== -->
 <div id="soon" class="view">
   <div class="wrap">
@@ -1201,6 +1538,13 @@ function go(id){
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   window.scrollTo({top:0,behavior:'instant' in window ? 'instant':'auto'});
+}
+function goTo(view, anchor){
+  go(view);
+  if(anchor){
+    const el = document.getElementById(anchor);
+    if(el) requestAnimationFrame(()=>requestAnimationFrame(()=>el.scrollIntoView({behavior:'smooth'})));
+  }
 }
 // reveal blocks on scroll (subtle)
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity=1;e.target.style.transform='none';io.unobserve(e.target);}})},{threshold:.08});
