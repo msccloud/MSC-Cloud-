@@ -1,0 +1,1210 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MSC Lernplattform · Charité</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Hanken+Grotesk:wght@400;500;600;700&family=Amiri&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBF8F1;
+  --paper-2:#F5EFE2;
+  --card:#FFFEFB;
+  --ink:#1B2A27;
+  --ink-soft:#46554F;
+  --ink-faint:#7C887F;
+  --teal-900:#0E3531;
+  --teal-700:#1C5B52;
+  --teal-500:#2F7E70;
+  --teal-100:#DCEAE5;
+  --gold:#B98A2E;
+  --gold-soft:#D9B25A;
+  --gold-wash:#F3E7C8;
+  --line:#E6DDCB;
+  --line-strong:#D7CBB2;
+  --shadow:0 1px 2px rgba(27,42,39,.04), 0 8px 30px -12px rgba(14,53,49,.18);
+  --shadow-lg:0 2px 6px rgba(27,42,39,.06), 0 30px 60px -22px rgba(14,53,49,.30);
+  --serif:"Fraunces", Georgia, serif;
+  --sans:"Hanken Grotesk", system-ui, sans-serif;
+  --arab:"Amiri", serif;
+  --r:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:var(--sans);
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+/* paper grain */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/></svg>");
+  mix-blend-mode:multiply;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+
+/* ---------- top nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:30;
+  background:rgba(251,248,241,.82);
+  backdrop-filter:saturate(140%) blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{display:flex;align-items:center;gap:12px;cursor:pointer}
+.mark{
+  width:38px;height:38px;border-radius:11px;flex:0 0 auto;
+  background:radial-gradient(120% 120% at 30% 20%, var(--teal-700), var(--teal-900));
+  display:grid;place-items:center;box-shadow:inset 0 0 0 1px rgba(217,178,90,.35);
+}
+.mark svg{width:22px;height:22px}
+.brand b{font-family:var(--serif);font-weight:600;letter-spacing:.2px;font-size:1.12rem}
+.brand small{display:block;color:var(--ink-faint);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;margin-top:-2px}
+.nav-links{display:flex;gap:28px;align-items:center;font-size:.93rem;font-weight:500;color:var(--ink-soft)}
+.nav-links a{position:relative}
+.nav-links a:hover{color:var(--teal-700)}
+.nav-cta{
+  font-size:.88rem;font-weight:600;color:var(--teal-900);
+  border:1px solid var(--line-strong);padding:8px 16px;border-radius:999px;background:var(--card);
+  transition:.2s;
+}
+.nav-cta:hover{border-color:var(--teal-500);box-shadow:var(--shadow)}
+@media(max-width:760px){.nav-links{display:none}}
+
+/* ---------- views ---------- */
+.view{display:none}
+.view.active{display:block;animation:fade .5s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;overflow:hidden;color:#F4EFE2;
+  background:
+    radial-gradient(140% 120% at 85% -10%, #19564C 0%, transparent 55%),
+    linear-gradient(160deg,#0E3531 0%, #103E38 55%, #0C2E2A 100%);
+}
+.hero::after{ /* geometric light pattern */
+  content:"";position:absolute;inset:0;opacity:.16;pointer-events:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'><g fill='none' stroke='%23D9B25A' stroke-width='1'><path d='M40 4 L62 18 L62 46 L40 60 L18 46 L18 18 Z'/><path d='M40 18 L52 25 L52 39 L40 46 L28 39 L28 25 Z'/><circle cx='40' cy='32' r='4'/></g></svg>");
+  background-size:120px 120px;
+  -webkit-mask-image:linear-gradient(180deg,#000 0%, transparent 92%);
+          mask-image:linear-gradient(180deg,#000 0%, transparent 92%);
+}
+.hero-in{position:relative;z-index:2;padding:84px 0 96px;max-width:760px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;
+  font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft);
+  border:1px solid rgba(217,178,90,.35);padding:7px 14px;border-radius:999px;margin-bottom:26px}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold-soft)}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.4rem,5.4vw,4rem);line-height:1.04;margin:0 0 22px;letter-spacing:-.5px}
+.hero h1 em{font-style:italic;color:var(--gold-soft)}
+.hero p{font-size:1.12rem;color:#D8E2DC;max-width:600px;margin:0 0 16px}
+.motto{font-family:var(--arab);direction:rtl;font-size:1.5rem;color:var(--gold-soft);margin:30px 0 4px;opacity:.95}
+.motto-tr{font-style:italic;font-family:var(--serif);color:#B9C7C0;font-size:.98rem}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:.98rem;
+  padding:13px 24px;border-radius:999px;cursor:pointer;transition:.22s;border:1px solid transparent}
+.btn-gold{background:linear-gradient(180deg,var(--gold-soft),var(--gold));color:#241a06;
+  box-shadow:0 10px 24px -10px rgba(185,138,46,.7)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 30px -10px rgba(185,138,46,.8)}
+.btn-ghost{border-color:rgba(255,255,255,.25);color:#EFE9DB}
+.btn-ghost:hover{background:rgba(255,255,255,.07);border-color:rgba(217,178,90,.5)}
+.btn svg{width:17px;height:17px}
+
+/* hero stat strip */
+.strip{position:relative;z-index:2;border-top:1px solid rgba(217,178,90,.18);
+  display:grid;grid-template-columns:repeat(4,1fr)}
+.strip div{padding:24px 28px;border-right:1px solid rgba(217,178,90,.12)}
+.strip div:last-child{border-right:none}
+.strip .n{font-family:var(--serif);font-size:1.9rem;color:var(--gold-soft);line-height:1}
+.strip .l{font-size:.82rem;color:#AEBDB6;letter-spacing:.04em;margin-top:6px}
+@media(max-width:760px){.strip{grid-template-columns:repeat(2,1fr)}.strip div:nth-child(2){border-right:none}}
+
+/* ---------- section shells ---------- */
+section{position:relative;z-index:2}
+.sec{padding:78px 0}
+.sec-head{max-width:640px;margin-bottom:40px}
+.kicker{font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.kicker::before{content:"";width:26px;height:1.5px;background:var(--gold)}
+.sec h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.7rem,3.4vw,2.5rem);margin:0 0 14px;letter-spacing:-.4px;line-height:1.1}
+.sec .lead{color:var(--ink-soft);font-size:1.05rem}
+
+/* ---------- semester grid ---------- */
+.grid-sem{display:grid;grid-template-columns:repeat(auto-fill,minmax(252px,1fr));gap:18px}
+.scard{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:26px 24px 22px;cursor:pointer;transition:.25s;overflow:hidden;display:flex;flex-direction:column;min-height:188px}
+.scard::before{content:"";position:absolute;left:0;top:0;height:100%;width:4px;background:var(--line-strong);transition:.25s}
+.scard:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--line-strong)}
+.scard:hover::before{background:linear-gradient(var(--teal-500),var(--teal-900))}
+.scard.live::before{background:linear-gradient(var(--gold-soft),var(--gold))}
+.s-num{font-family:var(--serif);font-size:2.5rem;line-height:1;color:var(--teal-900);font-weight:500}
+.s-num span{font-size:1rem;color:var(--ink-faint);font-weight:400;margin-left:4px}
+.s-title{font-weight:600;font-size:1.12rem;margin:14px 0 4px;letter-spacing:-.2px}
+.s-focus{color:var(--ink-soft);font-size:.92rem;flex:1}
+.s-foot{display:flex;align-items:center;justify-content:space-between;margin-top:16px;font-size:.8rem}
+.tag{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:999px;font-weight:600;letter-spacing:.02em}
+.tag-live{background:var(--gold-wash);color:#7a571a}
+.tag-soon{background:var(--paper-2);color:var(--ink-faint)}
+.tag .pip{width:6px;height:6px;border-radius:50%;background:currentColor}
+.s-arrow{color:var(--ink-faint);transition:.25s}
+.scard:hover .s-arrow{color:var(--teal-700);transform:translateX(3px)}
+
+/* PJ wide card */
+.pj{grid-column:1/-1;background:linear-gradient(135deg,#11423B,#0C2E2A);color:#EFE9DB;border:none;
+  display:flex;align-items:center;gap:28px;min-height:auto;padding:30px 32px}
+.pj::before{display:none}
+.pj:hover{transform:translateY(-3px)}
+.pj .s-num{color:var(--gold-soft)}
+.pj .s-title{color:#fff;margin:0 0 2px}
+.pj .s-focus{color:#C3D0CA}
+
+/* quick access */
+.qa{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
+.qcard{display:flex;gap:14px;align-items:flex-start;background:var(--paper-2);border:1px solid var(--line);
+  border-radius:14px;padding:20px;transition:.2s;cursor:pointer}
+.qcard:hover{background:var(--card);box-shadow:var(--shadow);transform:translateY(-2px)}
+.qicon{width:42px;height:42px;border-radius:11px;background:var(--teal-100);color:var(--teal-700);
+  display:grid;place-items:center;flex:0 0 auto}
+.qicon svg{width:21px;height:21px}
+.qcard b{font-size:1rem}
+.qcard p{margin:3px 0 0;font-size:.86rem;color:var(--ink-soft)}
+
+/* physikum band */
+.band{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.phys{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+.pcol{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;position:relative}
+.pcol .pct{position:absolute;top:18px;right:20px;font-family:var(--serif);color:var(--gold);font-size:1.05rem}
+.pcol h4{font-family:var(--serif);font-weight:500;font-size:1.22rem;margin:0 0 6px}
+.pcol p{margin:0;color:var(--ink-soft);font-size:.92rem}
+.pcol .when{display:inline-block;margin-top:12px;font-size:.78rem;color:var(--teal-700);font-weight:600;background:var(--teal-100);padding:3px 10px;border-radius:999px}
+@media(max-width:760px){.phys{grid-template-columns:1fr}}
+
+/* ---------- SEMESTER 2 detail ---------- */
+.crumb{display:flex;align-items:center;gap:8px;font-size:.88rem;color:var(--ink-faint);padding:22px 0 0}
+.crumb a:hover{color:var(--teal-700)}
+.crumb b{color:var(--ink)}
+.det-hero{padding:24px 0 0}
+.det-tag{display:inline-flex;align-items:center;gap:9px;background:var(--gold-wash);color:#7a571a;
+  font-weight:700;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;padding:7px 14px;border-radius:999px}
+.det-hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,4.6vw,3.2rem);margin:20px 0 14px;letter-spacing:-.6px;line-height:1.05}
+.det-hero .lead{font-size:1.12rem;color:var(--ink-soft);max-width:680px}
+.callout{margin-top:26px;display:flex;gap:16px;background:linear-gradient(135deg,#13453E,#0E3531);color:#EDE7D9;
+  border-radius:16px;padding:24px 26px;align-items:flex-start;box-shadow:var(--shadow)}
+.callout .ci{flex:0 0 auto;width:40px;height:40px;border-radius:11px;background:rgba(217,178,90,.18);
+  color:var(--gold-soft);display:grid;place-items:center}
+.callout b{color:#fff;font-family:var(--serif);font-weight:500;font-size:1.15rem;display:block;margin-bottom:3px}
+.callout p{margin:0;font-size:.96rem;color:#CBD7D1}
+
+/* TOC sticky layout */
+.det-body{display:grid;grid-template-columns:230px 1fr;gap:48px;align-items:start;padding-top:8px}
+.toc{position:sticky;top:88px;font-size:.92rem}
+.toc .tt{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin-bottom:14px}
+.toc a{display:block;padding:8px 0 8px 16px;color:var(--ink-soft);border-left:2px solid var(--line);transition:.18s}
+.toc a:hover{color:var(--teal-700);border-color:var(--teal-500)}
+.det-main{min-width:0}
+.block{margin-bottom:60px;scroll-margin-top:88px}
+.block h3{font-family:var(--serif);font-weight:500;font-size:1.65rem;margin:0 0 8px;letter-spacing:-.3px;
+  display:flex;align-items:baseline;gap:12px}
+.block h3 .bn{font-size:.85rem;color:var(--gold);font-weight:700;font-family:var(--sans);letter-spacing:.1em}
+.block > p{color:var(--ink-soft);margin:0 0 22px;max-width:62ch}
+@media(max-width:900px){.det-body{grid-template-columns:1fr}.toc{display:none}}
+
+/* station cards */
+.stations{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.st{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;transition:.2s}
+.st:hover{box-shadow:var(--shadow);border-color:var(--line-strong)}
+.st-top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.st-ic{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;flex:0 0 auto}
+.st-ic.m{background:var(--teal-100);color:var(--teal-700)}
+.st-ic.p{background:var(--gold-wash);color:#7a571a}
+.st-kind{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);font-weight:700}
+.st h4{font-family:var(--serif);font-weight:500;font-size:1.3rem;margin:0}
+.st p{margin:0;color:var(--ink-soft);font-size:.93rem}
+.st .mods{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px}
+.mod{font-size:.74rem;font-weight:600;background:var(--paper-2);border:1px solid var(--line);color:var(--ink-soft);padding:3px 9px;border-radius:7px}
+@media(max-width:680px){.stations{grid-template-columns:1fr}}
+
+/* passing / example calc */
+.calc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:6px}
+.calc{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card)}
+.calc .ch{padding:14px 18px;font-weight:700;font-size:.9rem;border-bottom:1px solid var(--line)}
+.calc.ok .ch{background:var(--teal-100);color:var(--teal-900)}
+.calc.tight .ch{background:var(--gold-wash);color:#7a571a}
+.calc ul{list-style:none;margin:0;padding:14px 18px;font-size:.88rem;color:var(--ink-soft)}
+.calc li{display:flex;justify-content:space-between;padding:3px 0}
+.calc .tot{margin:0;padding:13px 18px;font-family:var(--serif);font-size:1.05rem;border-top:1px solid var(--line);display:flex;justify-content:space-between}
+.calc.ok .tot{color:var(--teal-700)}.calc.tight .tot{color:var(--gold)}
+@media(max-width:760px){.calc-grid{grid-template-columns:1fr}}
+
+/* info rows (ablauf) */
+.rows{display:grid;gap:2px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--line)}
+.row{display:grid;grid-template-columns:170px 1fr;gap:20px;background:var(--card);padding:16px 20px}
+.row dt{font-weight:600;color:var(--teal-900)}
+.row dd{margin:0;color:var(--ink-soft);font-size:.95rem}
+@media(max-width:560px){.row{grid-template-columns:1fr;gap:4px}}
+
+.dates{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.dcard{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:var(--paper-2)}
+.dcard .dl{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.dcard .dv{font-family:var(--serif);font-size:1.35rem;color:var(--teal-900);margin-top:4px}
+@media(max-width:560px){.dates{grid-template-columns:1fr}}
+
+/* timeline of exam day */
+.day{display:flex;gap:0;margin-top:22px;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.slot{flex:1;padding:18px 16px;text-align:center;border-right:1px solid var(--line);font-size:.86rem}
+.slot:last-child{border-right:none}
+.slot .tm{font-family:var(--serif);color:var(--teal-700);font-size:1.05rem}
+.slot.am{background:var(--gold-wash)}.slot.pm{background:var(--teal-100)}.slot.br{background:var(--paper-2)}
+.slot b{display:block;margin-top:4px;color:var(--ink)}
+.slot small{color:var(--ink-soft)}
+@media(max-width:680px){.day{flex-direction:column}.slot{border-right:none;border-bottom:1px solid var(--line)}}
+
+/* frequency table */
+.tbl{width:100%;border-collapse:collapse;font-size:.92rem;margin-top:4px;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.tbl th,.tbl td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line)}
+.tbl thead th{background:var(--paper-2);font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-faint)}
+.tbl tbody tr:last-child td{border-bottom:none}
+.tbl tbody tr:hover{background:var(--paper)}
+.tbl .topic{font-weight:600;color:var(--ink)}
+.freq{display:inline-flex;gap:3px;align-items:center}
+.freq i{width:9px;height:9px;border-radius:2px;background:var(--line-strong);display:inline-block}
+.freq i.on{background:linear-gradient(var(--gold-soft),var(--gold))}
+.pct-pill{font-weight:700;color:var(--teal-700);font-size:.85rem}
+
+/* themenkomplexe chips */
+.tk{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:8px;margin-top:6px}
+.tkc{display:flex;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px 14px;font-size:.9rem}
+.tkc .tkn{width:26px;height:26px;border-radius:7px;background:var(--paper-2);color:var(--teal-700);font-weight:700;font-size:.8rem;display:grid;place-items:center;flex:0 0 auto}
+.tkc.hot{border-color:var(--gold-soft);background:linear-gradient(0deg,var(--gold-wash),var(--card))}
+.tkc.hot .tkn{background:var(--gold);color:#fff}
+.tkc .star{margin-left:auto;color:var(--gold)}
+
+/* material list */
+.mats{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
+.mat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;transition:.22s}
+.mat:hover{box-shadow:var(--shadow);transform:translateY(-3px);border-color:var(--line-strong)}
+.mat-h{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.mat-ic{width:40px;height:40px;border-radius:11px;background:var(--teal-900);color:var(--gold-soft);display:grid;place-items:center;flex:0 0 auto}
+.mat-ic svg{width:20px;height:20px}
+.mat-h b{font-size:1.08rem;font-family:var(--serif);font-weight:500}
+.mat-h small{display:block;color:var(--ink-faint);font-size:.78rem}
+.mat ul{list-style:none;margin:0;padding:0}
+.mat li a{display:flex;align-items:center;gap:9px;padding:8px 0;font-size:.9rem;color:var(--ink-soft);border-top:1px dashed var(--line);transition:.16s}
+.mat li:first-child a{border-top:none}
+.mat li a:hover{color:var(--teal-700)}
+.mat li a .fi{flex:0 0 auto;opacity:.7}
+.mat li a .ar{margin-left:auto;opacity:0;transition:.16s}
+.mat li a:hover .ar{opacity:1;transform:translateX(2px)}
+
+/* tips */
+.tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.tip{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;border-top:3px solid var(--gold-soft)}
+.tip h5{font-family:var(--serif);font-weight:500;font-size:1.2rem;margin:0 0 10px;display:flex;align-items:center;gap:9px}
+.tip ul{margin:0;padding-left:18px;color:var(--ink-soft);font-size:.92rem}
+.tip li{margin-bottom:7px}
+.tip a{color:var(--teal-700);font-weight:600;word-break:break-word}
+
+/* placeholder (other semesters) */
+.ph{padding:120px 0;text-align:center;max-width:560px;margin:0 auto}
+.ph .pic{width:78px;height:78px;border-radius:20px;margin:0 auto 26px;background:var(--teal-100);color:var(--teal-700);display:grid;place-items:center}
+.ph h2{font-family:var(--serif);font-weight:500;font-size:2rem;margin:0 0 12px}
+.ph p{color:var(--ink-soft);font-size:1.05rem;margin:0 0 28px}
+
+/* footer */
+.foot{background:linear-gradient(160deg,#0E3531,#0A2724);color:#C3D0CA;margin-top:40px;position:relative;z-index:2}
+.foot-in{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding:64px 0 40px}
+.foot .motto{margin:0 0 8px}
+.foot h6{color:#fff;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 16px;font-weight:700}
+.foot a{display:block;padding:6px 0;font-size:.92rem;color:#AEBDB6}
+.foot a:hover{color:var(--gold-soft)}
+.foot p{font-size:.92rem;max-width:34ch;color:#9FB0A8}
+.foot-bot{border-top:1px solid rgba(217,178,90,.15);padding:20px 0;font-size:.82rem;color:#86978f;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media(max-width:760px){.foot-in{grid-template-columns:1fr;gap:28px}}
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<nav class="nav">
+  <div class="wrap nav-in">
+    <div class="brand" onclick="go('home')">
+      <div class="mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#D9B25A" stroke-width="1.6"><path d="M12 3 L20 7 V13 C20 17 16 20 12 21 C8 20 4 17 4 13 V7 Z"/><path d="M12 8 v6 M9 11 h6" stroke-width="1.6"/></svg>
+      </div>
+      <div>
+        <b>MSC Lernplattform</b>
+        <small>Charité · Modellstudiengang</small>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a onclick="go('home')">Startseite</a>
+      <a href="#semesters" onclick="go('home')">Semester</a>
+      <a href="#physikum" onclick="go('home')">Physikum</a>
+      <a href="#schnellzugriff" onclick="go('home')">Material</a>
+    </div>
+    <a class="nav-cta" onclick="go('sem2')">2. Semester →</a>
+  </div>
+</nav>
+
+<!-- ===================== HOME ===================== -->
+<div id="home" class="view active">
+
+  <header class="hero">
+    <div class="wrap hero-in">
+      <span class="eyebrow"><span class="dot"></span> Muslimische Hochschulgruppe der Charité</span>
+      <h1>Dein Studium, von Studierenden <em>für Studierende</em> gebündelt.</h1>
+      <p>Eine Plattform für alle zehn Semester des Modellstudiengangs Medizin – mit Ausarbeitungen, Anki-Decks, Prüfungsprotokollen und ehrlichen Tipps für jede Prüfung.</p>
+      <p class="motto">مَن طَلَبَ العِلمَ وَجَدَ النور</p>
+      <p class="motto-tr">„Wer das Wissen sucht, findet das Licht.“</p>
+      <div class="hero-cta">
+        <a class="btn btn-gold" onclick="go('sem2')">2. Semester entdecken
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="#semesters">Alle Semester ansehen</a>
+      </div>
+    </div>
+    <div class="wrap"><div class="strip">
+      <div><div class="n">10</div><div class="l">Semester + PJ</div></div>
+      <div><div class="n">12</div><div class="l">Stationsprüfungen</div></div>
+      <div><div class="n">100+</div><div class="l">Lernmaterialien</div></div>
+      <div><div class="n">∞</div><div class="l">Karteikarten &amp; Decks</div></div>
+    </div></div>
+  </header>
+
+  <!-- semesters -->
+  <section class="sec" id="semesters">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Wähle dein Semester</div>
+        <h2>Zehn Semester, ein klarer Weg.</h2>
+        <p class="lead">Jedes Semester hat eine eigene Seite: Überblick, anstehende Prüfungen, und alle Materialien an einem Ort. Aktuell vollständig ausgearbeitet ist das <b>2. Semester</b> – die übrigen folgen Schritt für Schritt.</p>
+      </div>
+
+      <div class="grid-sem">
+        <!-- 1 -->
+        <div class="scard" onclick="go('soon')">
+          <div class="s-num">01<span>· Sem</span></div>
+          <div class="s-title">Grundlagen &amp; Einstieg</div>
+          <div class="s-focus">Erste Module, Notfallwoche, Untersuchungskurs – das Fundament.</div>
+          <div class="s-foot"><span class="tag tag-soon"><span class="pip"></span>In Vorbereitung</span>
+            <span class="s-arrow">→</span></div>
+        </div>
+        <!-- 2 LIVE -->
+        <div class="scard live" onclick="go('sem2')">
+          <div class="s-num">02<span>· Sem</span></div>
+          <div class="s-title">Module M5–M8</div>
+          <div class="s-focus">Wachstum, Gesundheit &amp; Gesellschaft, Wiss. Arbeiten, Blut &amp; Immunsystem – mit SMPP &amp; MC-Klausur.</div>
+          <div class="s-foot"><span class="tag tag-live"><span class="pip"></span>Vollständig</span>
+            <span class="s-arrow">→</span></div>
+        </div>
+        <!-- 3 -->
+        <div class="scard" onclick="go('soon')">
+          <div class="s-num">03<span>· Sem</span></div>
+          <div class="s-title">Anatomie</div>
+          <div class="s-focus">Schwerpunkt makroskopische &amp; mikroskopische Anatomie, Präpkurs.</div>
+          <div class="s-foot"><span class="tag tag-soon"><span class="pip"></span>In Vorbereitung</span>
+            <span class="s-arrow">→</span></div>
+        </div>
+        <!-- 4 -->
+        <div class="scard" onclick="go('soon')">
+          <div class="s-num">04<span>· Sem</span></div>
+          <div class="s-title">SMPP · Stationsprüfung</div>
+          <div class="s-focus">8 Stationen (4 mündlich, 4 praktisch). Teil 2 des Physikums.</div>
+          <div class="s-foot"><span class="tag tag-soon"><span class="pip"></span>In Vorbereitung</span>
+            <span class="s-arrow">→</span></div>
+        </div>
+        <!-- 5 -->
+        <div class="scard" onclick="go('soon')">
+          <div class="s-num">05<span>· Sem</span></div>
+          <div class="s-title">MC-Klausur · Physikum</div>
+          <div class="s-focus">Die große Multiple-Choice-Prüfung – Teil 2 des Physikums.</div>
+          <div class="s-foot"><span class="tag tag-soon"><span class="pip"></span>In Vorbereitung</span>
+            <span class="s-arrow">→</span></div>
+        </div>
+        <!-- 6 -->
+        <div class="scard" onclick="go('soon')">
+          <div class="s-num">06<span>· Sem</span></div>
+          <div class="s-title">Hausarbeit · Physikum</div>
+          <div class="s-focus">Wissenschaftliche Hausarbeit – Teil 3 und Abschluss des Physikums.</div>
+          <div class="s-foot"><span class="tag tag-soon"><span class="pip"></span>In Vorbereitung</span>
+            <span class="s-arrow">→</span></div>
+        </div>
+        <!-- 7 -->
+        <div class="scard" onclick="go('soon')">
+          <div class="s-num">07<span>· Sem</span></div>
+          <div class="s-title">Klinik I</div>
+          <div class="s-focus">Übergang in den klinischen Abschnitt, erste Fächer.</div>
+          <div class="s-foot"><span class="tag tag-soon"><span class="pip"></span>In Vorbereitung</span>
+            <span class="s-arrow">→</span></div>
+        </div>
+        <!-- 8 -->
+        <div class="scard" onclick="go('soon')">
+          <div class="s-num">08<span>· Sem</span></div>
+          <div class="s-title">Klinik II</div>
+          <div class="s-focus">Vertiefung der klinischen Module.</div>
+          <div class="s-foot"><span class="tag tag-soon"><span class="pip"></span>In Vorbereitung</span>
+            <span class="s-arrow">→</span></div>
+        </div>
+        <!-- 9 -->
+        <div class="scard" onclick="go('soon')">
+          <div class="s-num">09<span>· Sem</span></div>
+          <div class="s-title">OSCE</div>
+          <div class="s-focus">Objective Structured Clinical Examination – klinisch-praktisch.</div>
+          <div class="s-foot"><span class="tag tag-soon"><span class="pip"></span>In Vorbereitung</span>
+            <span class="s-arrow">→</span></div>
+        </div>
+        <!-- 10 -->
+        <div class="scard" onclick="go('soon')">
+          <div class="s-num">10<span>· Sem</span></div>
+          <div class="s-title">Klinik · Abschluss</div>
+          <div class="s-focus">Letztes reguläres Semester vor dem Praktischen Jahr.</div>
+          <div class="s-foot"><span class="tag tag-soon"><span class="pip"></span>In Vorbereitung</span>
+            <span class="s-arrow">→</span></div>
+        </div>
+        <!-- PJ -->
+        <div class="scard pj" onclick="go('soon')">
+          <div class="s-num">PJ</div>
+          <div style="flex:1">
+            <div class="s-title">Praktisches Jahr</div>
+            <div class="s-focus">Drei Tertiale in der Klinik &amp; das 3. Staatsexamen. Materialien folgen.</div>
+          </div>
+          <span class="btn btn-ghost" style="border-color:rgba(217,178,90,.4)">Bald verfügbar</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Physikum erklärung -->
+  <section class="band">
+    <div class="wrap sec" id="physikum">
+      <div class="sec-head">
+        <div class="kicker">Gut zu wissen</div>
+        <h2>Wie das Physikum im Modellstudiengang funktioniert</h2>
+        <p class="lead">Statt einer einzigen großen Prüfung am Ende des 4. Semesters ist das Physikum an der Charité in drei gleich gewichtete Teile aufgeteilt – das macht das Bestehen deutlich entspannter.</p>
+      </div>
+      <div class="phys">
+        <div class="pcol">
+          <span class="pct">33 %</span>
+          <h4>Stationsprüfungen</h4>
+          <p>Insgesamt 12 Stationen – verteilt auf das 2. und 4. Semester. Jede Station zählt 2,5 %.</p>
+          <span class="when">2. &amp; 4. Semester</span>
+        </div>
+        <div class="pcol">
+          <span class="pct">33 %</span>
+          <h4>MC-Klausur</h4>
+          <p>Die große Multiple-Choice-Prüfung über den vorklinischen Stoff.</p>
+          <span class="when">5. Semester</span>
+        </div>
+        <div class="pcol">
+          <span class="pct">33 %</span>
+          <h4>Hausarbeit</h4>
+          <p>Eine wissenschaftliche Hausarbeit rundet das Physikum ab.</p>
+          <span class="when">6. Semester</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Schnellzugriff -->
+  <section class="sec" id="schnellzugriff">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Schnellzugriff</div>
+        <h2>Übergreifende Sammlungen</h2>
+      </div>
+      <div class="qa">
+        <div class="qcard" onclick="go('soon')">
+          <div class="qicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v4H4zM4 12h16v8H4z"/></svg></div>
+          <div><b>Altklausuren</b><p>Gesammelte Klausuren &amp; Gedächtnisprotokolle aller Semester.</p></div>
+        </div>
+        <div class="qcard" onclick="go('soon')">
+          <div class="qicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h9l5 5v13H6z"/><path d="M15 3v5h5M9 13h6M9 17h6"/></svg></div>
+          <div><b>Ausarbeitungen</b><p>Geprüfte Zusammenfassungen, kurz bis ausführlich.</p></div>
+        </div>
+        <div class="qcard" onclick="go('soon')">
+          <div class="qicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7l9-4 9 4-9 4z"/><path d="M3 7v6l9 4 9-4V7"/></svg></div>
+          <div><b>Allgemeines</b><p>Studienorganisation, Ablaufpläne &amp; Wissenswertes.</p></div>
+        </div>
+        <div class="qcard" onclick="go('soon')">
+          <div class="qicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 4v16"/></svg></div>
+          <div><b>Anki-Decks</b><p>Karteikarten-Sammlungen für jedes Fach.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer class="foot">
+    <div class="wrap foot-in">
+      <div>
+        <p class="motto">مَن طَلَبَ العِلمَ وَجَدَ النور</p>
+        <p>Erstellt mit Hingabe von der MSC – der muslimischen Hochschulgruppe der Charité. Von Studierenden, für Studierende.</p>
+      </div>
+      <div>
+        <h6>Plattform</h6>
+        <a onclick="go('home')">Startseite</a>
+        <a href="#semesters" onclick="go('home')">Alle Semester</a>
+        <a onclick="go('sem2')">2. Semester</a>
+        <a href="#physikum" onclick="go('home')">Physikum</a>
+      </div>
+      <div>
+        <h6>Mitmachen</h6>
+        <a onclick="go('soon')">Feedback geben</a>
+        <a onclick="go('soon')">Material beitragen</a>
+        <a onclick="go('soon')">Fehler melden</a>
+        <a onclick="go('soon')">Kontakt</a>
+      </div>
+    </div>
+    <div class="wrap foot-bot">
+      <span>© 2026 MSC Charité · Inoffizielle studentische Lernplattform</span>
+      <span>Kein offizielles Angebot der Charité – Universitätsmedizin Berlin</span>
+    </div>
+  </footer>
+</div><!-- /home -->
+
+<!-- ===================== SEMESTER 2 ===================== -->
+<div id="sem2" class="view">
+  <div class="wrap">
+    <div class="crumb"><a onclick="go('home')">Startseite</a> <span>›</span> <b>2. Semester</b></div>
+  </div>
+
+  <header class="wrap det-hero">
+    <span class="det-tag"><span class="pip" style="width:6px;height:6px;border-radius:50%;background:currentColor"></span> Vorklinik · 2. Semester</span>
+    <h1>Das 2. Semester im Überblick</h1>
+    <p class="lead">Vier Module, zwei Prüfungen, ein Ziel. Hier bekommst du zuerst eine kurze Orientierung – welche Module dich erwarten und worauf es ankommt – und steigst dann in die beiden Prüfungen ein: die Stationsprüfung (SMPP) und die MC-Abschlussklausur am Semesterende.</p>
+    <div class="callout">
+      <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 L20 7 V13 C20 17 16 20 12 21 C8 20 4 17 4 13 V7 Z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <div><b>Beide Prüfungen sind sehr gut machbar.</b>
+        <p>Die SMPP zählt als Teil des Physikums, und für die MC bleibt danach genug Zeit – die Themen überlappen stark. Mit den Materialien hier und etwas Planung schafft ihr beides locker.</p></div>
+    </div>
+  </header>
+
+  <style>
+    .sm-intro{color:var(--ink-soft);max-width:64ch;margin:0 0 26px;font-size:1.02rem}
+    .mods-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(245px,1fr));gap:16px}
+    .modcard{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 22px 22px;transition:.2s;overflow:hidden}
+    .modcard::before{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:linear-gradient(90deg,var(--teal-500),var(--teal-900))}
+    .modcard:hover{box-shadow:var(--shadow);transform:translateY(-3px);border-color:var(--line-strong)}
+    .modcard .mh{display:flex;align-items:baseline;gap:11px;margin-bottom:9px}
+    .modcard .mno{font-family:var(--serif);font-size:1.55rem;color:var(--teal-900);line-height:1;flex:0 0 auto}
+    .modcard h4{font-family:var(--serif);font-weight:500;font-size:1.16rem;margin:0;letter-spacing:-.2px}
+    .modcard p{margin:0 0 15px;color:var(--ink-soft);font-size:.92rem}
+    .modcard .meta{display:flex;gap:7px;flex-wrap:wrap}
+    .modcard .meta span{font-size:.74rem;font-weight:600;background:var(--paper-2);border:1px solid var(--line);color:var(--ink-soft);padding:3px 10px;border-radius:999px}
+    .modcard .meta .ects{background:var(--gold-wash);border-color:transparent;color:#7a571a}
+    .timeline{margin:6px 0 4px}
+    .timeline .tlbar{display:flex;height:48px;border-radius:11px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
+    .timeline .seg{display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:700;color:#fff;border-right:2px solid var(--paper);white-space:nowrap;padding:0 6px;letter-spacing:.01em}
+    .timeline .seg:last-child{border-right:none}
+    .timeline .seg.m5{background:#C0608B}.timeline .seg.m6{background:#3E8CBE}
+    .timeline .seg.m7{background:#56A98B}.timeline .seg.m8{background:#C49A2B}
+    .timeline .seg.ex{background:var(--teal-900)}.timeline .seg.mc{background:#8A6420}
+    .timeline .tllabels{display:flex;justify-content:space-between;font-size:.74rem;color:var(--ink-faint);margin-top:8px}
+    .exam-head{display:flex;align-items:center;gap:20px;background:linear-gradient(135deg,#13453E,#0E3531);color:#EDE7D9;
+      border-radius:18px;padding:26px 30px;margin:0 0 28px;box-shadow:var(--shadow);scroll-margin-top:88px}
+    .exam-head .eh-no{font-family:var(--serif);font-size:2.8rem;color:var(--gold-soft);line-height:1;flex:0 0 auto;opacity:.9}
+    .exam-head .eh-t{flex:1}
+    .exam-head .eh-k{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);font-weight:700}
+    .exam-head h3{font-family:var(--serif);font-weight:500;font-size:1.7rem;margin:3px 0 5px;color:#fff;border:none;display:block;letter-spacing:-.3px}
+    .exam-head p{margin:0;color:#C3D0CA;font-size:.95rem}
+    .exgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .excard{display:block;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;cursor:pointer;transition:.2s}
+    .excard:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px);border-color:var(--line-strong)}
+    .excard .ex-tag{display:inline-block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:4px 11px;border-radius:999px;margin-bottom:13px}
+    .excard.a .ex-tag{background:var(--gold-wash);color:#7a571a}
+    .excard.b .ex-tag{background:var(--teal-100);color:var(--teal-700)}
+    .excard h4{font-family:var(--serif);font-weight:500;font-size:1.32rem;margin:0 0 7px}
+    .excard p{margin:0 0 15px;color:var(--ink-soft);font-size:.93rem}
+    .excard .go{font-weight:600;color:var(--teal-700);font-size:.9rem}
+    @media(max-width:680px){.exgrid{grid-template-columns:1fr}.exam-head{flex-direction:column;text-align:center;gap:12px}}
+  </style>
+
+  <div class="wrap det-body">
+    <!-- TOC -->
+    <aside class="toc">
+      <div class="tt">Auf dieser Seite</div>
+      <a href="#s-ueberblick">Semesterüberblick</a>
+      <a href="#s-module">Die Module</a>
+      <a href="#s-achten">Worauf es ankommt</a>
+      <a href="#s-smpp">SMPP · Stationsprüfung</a>
+      <a href="#s-mc">MC · Abschlussklausur</a>
+      <a href="#s-material">Lernmaterial</a>
+      <a href="#s-tipps">Tipps &amp; Empfehlungen</a>
+    </aside>
+
+    <main class="det-main">
+
+      <!-- Semesterüberblick -->
+      <div class="block" id="s-ueberblick">
+        <h3>Worum geht es im 2. Semester?</h3>
+        <p class="sm-intro">Das 2. Semester umfasst vier Pflichtmodule (M5–M8) über 16 Semesterwochen. Den Anfang machen <b>Wachstum &amp; Gewebe</b> und <b>Gesundheit &amp; Gesellschaft</b>, danach folgen die <b>wissenschaftlichen Grundlagen</b> und das <b>Blut- &amp; Immunsystem</b>. Am Ende stehen zwei Prüfungen: die praktisch-mündliche Stationsprüfung (SMPP) und die schriftliche MC-Abschlussklausur.</p>
+        <div class="timeline">
+          <div class="tlbar">
+            <div class="seg m5" style="flex:4" title="Modul 5 · 4 Wochen">Modul 5</div>
+            <div class="seg m6" style="flex:3" title="Modul 6 · 3 Wochen">Modul 6</div>
+            <div class="seg m7" style="flex:3" title="Modul 7 · 3 Wochen">Modul 7</div>
+            <div class="seg m8" style="flex:4" title="Modul 8 · 4 Wochen">Modul 8</div>
+            <div class="seg ex" style="flex:1.5" title="Stationsprüfung">SMPP</div>
+            <div class="seg mc" style="flex:1.5" title="MC-Abschlussklausur">MC</div>
+          </div>
+          <div class="tllabels"><span>Woche 1</span><span>← Module →</span><span>Prüfungsphase →</span><span>Woche 16</span></div>
+        </div>
+      </div>
+
+      <!-- Module -->
+      <div class="block" id="s-module">
+        <h3>Die vier Module</h3>
+        <p>Worum es in jedem Modul geht – und worauf es mit Blick auf die Prüfungen besonders ankommt.</p>
+        <div class="mods-grid">
+          <div class="modcard">
+            <div class="mh"><span class="mno">M5</span><h4>Wachstum, Gewebe, Organ</h4></div>
+            <p>Struktur &amp; Funktion der Gewebe, zelluläre Proliferation, Differenzierung &amp; Apoptose, Fehlsteuerung des Wachstums als Krankheitsursache sowie Embryologie (die drei Keimblätter).</p>
+            <div class="meta"><span class="ects">5 ECTS</span><span>4 Wochen</span><span>SMPP: Biochemie &amp; Biologie</span></div>
+          </div>
+          <div class="modcard">
+            <div class="mh"><span class="mno">M6</span><h4>Gesundheit und Gesellschaft</h4></div>
+            <p>Gesellschaftliche, ökonomische &amp; demografische Einflüsse auf Gesundheit, Biographie &amp; Persönlichkeit, psychosoziale Faktoren sowie soziale und geschlechtsspezifische Ungleichheit im ärztlichen Alltag.</p>
+            <div class="meta"><span class="ects">5 ECTS</span><span>3 Wochen</span><span>SMPP: Soziologie / MedSoz</span></div>
+          </div>
+          <div class="modcard">
+            <div class="mh"><span class="mno">M7</span><h4>Wissenschaftliches Arbeiten I</h4></div>
+            <p>Forschungsfelder &amp; Studienarten, der Forschungsprozess, Methoden der Datenerhebung und Statistik. Kernstück ist das eigene kleine Wissenschaftsprojekt („Dies scientiae").</p>
+            <div class="meta"><span class="ects">6 ECTS</span><span>3 Wochen</span><span>v. a. MC-Klausur</span></div>
+          </div>
+          <div class="modcard">
+            <div class="mh"><span class="mno">M8</span><h4>Blut- und Immunsystem</h4></div>
+            <p>Makro- &amp; mikroskopischer Aufbau und Funktion von Blut und Immunsystem, Normalbefunde in Anamnese &amp; Untersuchung sowie ausgewählte Erkrankungen und ihre Diagnostik.</p>
+            <div class="meta"><span class="ects">6 ECTS</span><span>4 Wochen</span><span>SMPP: Biochemie &amp; Anatomie</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Worauf achten -->
+      <div class="block" id="s-achten">
+        <h3>Worauf es ankommt</h3>
+        <p>Ein paar Dinge, die euch das Semester leichter machen:</p>
+        <div class="tips">
+          <div class="tip">
+            <h5>📅 Zwei Anmeldungen</h5>
+            <ul>
+              <li>Für <b>SMPP</b> und <b>MC</b> meldet ihr euch getrennt über <b>campus.charite.de</b> an – im selben Anmeldezeitraum.</li>
+              <li>Beide Prüfungen finden an unterschiedlichen Tagen statt.</li>
+            </ul>
+          </div>
+          <div class="tip">
+            <h5>🧬 Roter Faden Biochemie</h5>
+            <ul>
+              <li>Module M5 und M8 sind Biochemie- und SMPP-relevant – früh dranbleiben lohnt sich.</li>
+              <li>Vieles baut auf den Grundlagen des 1. Semesters (M2–M4) auf.</li>
+            </ul>
+          </div>
+          <div class="tip">
+            <h5>⏱️ Reihenfolge nutzen</h5>
+            <ul>
+              <li>Die SMPP kommt vor der MC. Wer sich gründlich auf die Stationen vorbereitet, hat es danach bei der MC deutlich leichter – die Themen überlappen stark.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prüfungen im Überblick -->
+      <div class="block" id="s-pruefungen">
+        <h3>Deine zwei Prüfungen</h3>
+        <p>Am Semesterende stehen zwei Prüfungen an. Tippe eine Karte an, um direkt zur Erklärung zu springen.</p>
+        <div class="exgrid">
+          <a class="excard a" onclick="document.getElementById('s-smpp').scrollIntoView({behavior:'smooth'})">
+            <span class="ex-tag">Praktisch &amp; mündlich</span>
+            <h4>SMPP · Stationsprüfung</h4>
+            <p>Vier Stationen: Biochemie, ein Wahlfach, Basic Life Support und Untersuchungskurs. Teil 1 des Physikums.</p>
+            <span class="go">Mehr erfahren →</span>
+          </a>
+          <a class="excard b" onclick="document.getElementById('s-mc').scrollIntoView({behavior:'smooth'})">
+            <span class="ex-tag">Schriftlich</span>
+            <h4>MC · Abschlussklausur</h4>
+            <p>Multiple-Choice-Klausur über die Module des Semesters (M5–M8) – am Ende des 2. Semesters.</p>
+            <span class="go">Mehr erfahren →</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- ===== PRÜFUNG 1: SMPP ===== -->
+      <div class="exam-head" id="s-smpp">
+        <div class="eh-no">1</div>
+        <div class="eh-t">
+          <div class="eh-k">Prüfung 1 · Teil des Physikums</div>
+          <h3>SMPP — die Stationsprüfung</h3>
+          <p>Vier Stationen an einem Tag: zwei praktische, zwei mündliche. Erfahrungsgemäß sehr gut machbar – Durchfallen ist nahezu ausgeschlossen.</p>
+        </div>
+      </div>
+
+      <!-- Aufbau -->
+      <div class="block" id="s-aufbau">
+        <h3><span class="bn">01</span> Aufbau der SMPP</h3>
+        <p>Die zwölf Stationsprüfungen machen zusammen ein Drittel des Physikums aus und verteilen sich auf das 2. und 4. Semester. Im 2. Semester legst du <b>vier Stationen</b> ab – zwei mündliche und zwei praktische. Jede Station zählt 2,5 %.</p>
+        <div class="stations" style="grid-template-columns:repeat(3,1fr)">
+          <div class="st" style="background:linear-gradient(135deg,#13453E,#0E3531);color:#EDE7D9;border:none">
+            <div class="s-num" style="font-family:var(--serif);font-size:2.2rem;color:var(--gold-soft)">4</div>
+            <div class="st-kind" style="color:var(--gold-soft)">2. Semester</div>
+            <h4 style="color:#fff">Stationen · 11 %</h4>
+            <p style="color:#C3D0CA">Dein aktueller Abschnitt.</p>
+          </div>
+          <div class="st">
+            <div class="s-num" style="font-family:var(--serif);font-size:2.2rem;color:var(--teal-900)">4</div>
+            <div class="st-kind">4. Semester</div>
+            <h4>praktische · 11 %</h4>
+            <p>Folgt später.</p>
+          </div>
+          <div class="st">
+            <div class="s-num" style="font-family:var(--serif);font-size:2.2rem;color:var(--teal-900)">4</div>
+            <div class="st-kind">4. Semester</div>
+            <h4>mündliche · 11 %</h4>
+            <p>Folgt später.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stationen -->
+      <div class="block" id="s-stationen">
+        <h3><span class="bn">02</span> Die vier Stationen im Detail</h3>
+        <p>Zwei mündliche und zwei praktische Prüfungen. In Biochemie wirst du immer geprüft – beim zweiten mündlichen Fach hast du die Wahl.</p>
+        <div class="stations">
+          <div class="st">
+            <div class="st-top">
+              <div class="st-ic m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 3v5a4 4 0 008 0V3M6 21h12M9 14c0 3-3 3-3 7M15 14c0 3 3 3 3 7"/></svg></div>
+              <div><div class="st-kind">Mündlich · Pflichtfach</div><h4>Biochemie</h4></div>
+            </div>
+            <p>Abgefragt werden Module M2–M4 aus dem 1. Semester sowie M5 und M8 aus dem 2. Semester. Insgesamt 19 Themenkomplexe.</p>
+            <div class="mods"><span class="mod">M2</span><span class="mod">M3</span><span class="mod">M4</span><span class="mod">M5</span><span class="mod">M8</span></div>
+          </div>
+          <div class="st">
+            <div class="st-top">
+              <div class="st-ic m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M5 8l7-5 7 5M5 8v8l7 5 7-5V8"/></svg></div>
+              <div><div class="st-kind">Mündlich · Wahlfach</div><h4>Anatomie / Biologie / Soziologie</h4></div>
+            </div>
+            <p>Anatomie: Grundlagen 1. Sem + M8 · Biologie: Grundlagen 1. Sem + M5 · Soziologie: gesellschaftswissenschaftliche Inhalte (MedSoz / Gesundheit &amp; Gesellschaft).</p>
+            <div class="mods"><span class="mod">Anatomie · M8</span><span class="mod">Biologie · M5</span><span class="mod">Soziologie · MedSoz</span></div>
+          </div>
+          <div class="st">
+            <div class="st-top">
+              <div class="st-ic p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.3-7-9a4 4 0 017-2.6A4 4 0 0119 12c0 4.7-7 9-7 9z"/><path d="M3 12h4l1.5-3 2 6 1.5-3H21" stroke-width="1.6"/></svg></div>
+              <div><div class="st-kind">Praktisch</div><h4>Basic Life Support</h4></div>
+            </div>
+            <p>Inhalte aus der Notfallwoche in Modul 1 – Reanimation (Erwachsene &amp; Baby) und der Body-Check.</p>
+            <div class="mods"><span class="mod">Notfallwoche · M1</span><span class="mod">REA</span><span class="mod">Body Check</span></div>
+          </div>
+          <div class="st">
+            <div class="st-top">
+              <div class="st-ic p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="7" r="3"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg></div>
+              <div><div class="st-kind">Praktisch</div><h4>Untersuchungskurs</h4></div>
+            </div>
+            <p>Praktische Fähigkeiten aus den U-Kursen des 1. &amp; 2. Semesters. In der Praxis wiederholen sich häufig bestimmte „Altfälle“.</p>
+            <div class="mods"><span class="mod">U-Kurs 1. Sem</span><span class="mod">U-Kurs 2. Sem</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bestehen -->
+      <div class="block" id="s-bestehen">
+        <h3><span class="bn">03</span> Bestehen &amp; Notenrechnung</h3>
+        <p>Zum Bestehen brauchst du über alle 12 Stationen im Schnitt mindestens 60 %. Da 6 davon praktisch sind und meist sehr gut bewertet werden, lassen sich schwächere mündliche Leistungen gut ausgleichen. Drei Beispiele aus der Handreichung:</p>
+        <div class="calc-grid">
+          <div class="calc ok">
+            <div class="ch">Fallbeispiel 1 · komfortabel</div>
+            <ul>
+              <li><span>Biochemie</span><b>97 %</b></li>
+              <li><span>Anatomie</span><b>97 %</b></li>
+              <li><span>BLS</span><b>92 %</b></li>
+              <li><span>U-Kurs</span><b>100 %</b></li>
+            </ul>
+            <p class="tot"><span>SMPP 2</span><b>97 %</b></p>
+          </div>
+          <div class="calc ok">
+            <div class="ch">Fallbeispiel 2 · solide</div>
+            <ul>
+              <li><span>Biochemie</span><b>50 %</b></li>
+              <li><span>Soziologie</span><b>90 %</b></li>
+              <li><span>BLS</span><b>92 %</b></li>
+              <li><span>U-Kurs</span><b>100 %</b></li>
+            </ul>
+            <p class="tot"><span>SMPP 2</span><b>83 %</b></p>
+          </div>
+          <div class="calc tight">
+            <div class="ch">Fallbeispiel 3 · trotzdem bestanden</div>
+            <ul>
+              <li><span>Biochemie</span><b>20 %</b></li>
+              <li><span>Anatomie</span><b>0 %</b></li>
+              <li><span>BLS</span><b>80 %</b></li>
+              <li><span>U-Kurs</span><b>80 %</b></li>
+            </ul>
+            <p class="tot"><span>SMPP 2</span><b>45 %</b></p>
+          </div>
+        </div>
+        <p style="margin-top:22px;font-size:.9rem;color:var(--ink-faint)">Selbst Fallbeispiel 3 führt im Gesamtexamen zusammen mit MC und Hausarbeit noch zum Bestehen (≈ 58 %). Die SMPP ist eben nur ein Drittel.</p>
+      </div>
+
+      <!-- Ablauf -->
+      <div class="block" id="s-ablauf">
+        <h3><span class="bn">04</span> Ablauf &amp; Anmeldung</h3>
+        <p>Du meldest dich – wie für die MC-Prüfung – über <b>campus.charite.de</b> an. Im 2. Semester sind das zwei Anmeldungen (MC und SMPP), beide im selben Zeitraum.</p>
+
+        <div class="dates">
+          <div class="dcard"><div class="dl">1. Termin · Anmeldefrist</div><div class="dv">16.12.2025 – 06.01.2026</div></div>
+          <div class="dcard"><div class="dl">2. Termin · Anmeldefrist</div><div class="dv">05.03. – 13.03.2026</div></div>
+        </div>
+
+        <dl class="rows" style="margin-top:20px">
+          <div class="row"><dt>Dauer</dt><dd>Die SMPP wird regulär über vier Tage verteilt; deinen konkreten Tag erfährst du 1–2 Wochen vorher.</dd></div>
+          <div class="row"><dt>Separater Tag</dt><dd>SMPP und MC-Prüfung finden an unterschiedlichen Tagen statt.</dd></div>
+          <div class="row"><dt>Ergebnisse</dt><dd>Nicht am Prüfungstag, sondern ca. einen Monat später über HIS unter „Individuelle Prüfungsergebnisse“.</dd></div>
+          <div class="row"><dt>Mitbringen</dt><dd>Kittel, Stethoskop (für die praktischen Stationen) und Lichtbildausweis.</dd></div>
+        </dl>
+
+        <div class="day">
+          <div class="slot am"><div class="tm">ab 9:00</div><b>Vormittags</b><small>2 praktische Prüfungen</small></div>
+          <div class="slot br"><div class="tm">Pause</div><b>bis zu 2 Std.</b><small>zwischen den Blöcken</small></div>
+          <div class="slot pm"><div class="tm">Nachmittags</div><b>2 mündliche Prüfungen</b><small>Grundlagenfächer</small></div>
+        </div>
+      </div>
+
+      <!-- Häufigkeiten -->
+      <div class="block" id="s-haeufig">
+        <h3><span class="bn">05</span> Häufigkeiten der Prüfungen</h3>
+        <p>Welche Stationen kommen wie oft dran? Aus den Auswertungen der letzten Semester – nutze das als Orientierung für deine Schwerpunkte.</p>
+
+        <table class="tbl">
+          <thead><tr><th>Praktische Station</th><th>Häufigkeit</th><th></th></tr></thead>
+          <tbody>
+            <tr><td class="topic">Body Check</td><td><span class="freq"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></td><td class="pct-pill">fast immer</td></tr>
+            <tr><td class="topic">Untersuchung Herz</td><td><span class="freq"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></td><td class="pct-pill">fast immer</td></tr>
+            <tr><td class="topic">Untersuchung Abdomen</td><td><span class="freq"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></td><td class="pct-pill">sehr häufig</td></tr>
+            <tr><td class="topic">REA Baby</td><td><span class="freq"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></td><td class="pct-pill">sehr häufig</td></tr>
+            <tr><td class="topic">Kopfschmerzanamnese</td><td><span class="freq"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></td><td class="pct-pill">häufig</td></tr>
+            <tr><td class="topic">REA Erwachsene</td><td><span class="freq"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></td><td class="pct-pill">gelegentlich</td></tr>
+          </tbody>
+        </table>
+
+        <p style="margin:28px 0 14px;font-weight:600;color:var(--teal-900)">Biochemie · 19 Themenkomplexe <span style="font-weight:400;color:var(--ink-faint)">— golden markiert = besonders häufig geprüft</span></p>
+        <div class="tk">
+          <div class="tkc"><span class="tkn">1</span> Chemie &amp; Funktion von Nukleotiden &amp; Nukleinsäuren</div>
+          <div class="tkc"><span class="tkn">2</span> Replikation</div>
+          <div class="tkc"><span class="tkn">3</span> Genexpression</div>
+          <div class="tkc"><span class="tkn">4</span> Gentechnik</div>
+          <div class="tkc hot"><span class="tkn">5</span> Posttranslationale Modifizierung &amp; Transport <span class="star">★</span></div>
+          <div class="tkc"><span class="tkn">6</span> Zellzyklus, Differenzierung, Apoptose, Nekrose</div>
+          <div class="tkc hot"><span class="tkn">7·8</span> Aminosäuren · Struktur &amp; Funktion von Proteinen <span class="star">★</span></div>
+          <div class="tkc hot"><span class="tkn">9</span> Funktion &amp; Eigenschaften von Enzymen <span class="star">★</span></div>
+          <div class="tkc"><span class="tkn">10</span> Proteine des Zytoskeletts</div>
+          <div class="tkc"><span class="tkn">11</span> Bindegewebe &amp; Knochen</div>
+          <div class="tkc hot"><span class="tkn">12</span> Chemie &amp; Stoffwechsel der Lipide <span class="star">★</span></div>
+          <div class="tkc"><span class="tkn">13</span> Membranaufbau &amp; Membrantransporte</div>
+          <div class="tkc hot"><span class="tkn">14·15</span> Kohlenhydrate · Energie-Stoffwechsel <span class="star">★</span></div>
+          <div class="tkc"><span class="tkn">16</span> Regulation des Stoffwechsels</div>
+          <div class="tkc"><span class="tkn">17</span> Hormone &amp; Signaltransduktion</div>
+          <div class="tkc hot"><span class="tkn">18</span> Blut, Hämostase, Eisenstoffwechsel <span class="star">★</span></div>
+          <div class="tkc"><span class="tkn">19</span> Immunologie</div>
+        </div>
+      </div>
+
+      <!-- ===== PRÜFUNG 2: MC ===== -->
+      <div class="exam-head" id="s-mc">
+        <div class="eh-no">2</div>
+        <div class="eh-t">
+          <div class="eh-k">Prüfung 2 · Semesterabschluss</div>
+          <h3>MC — die Abschlussklausur</h3>
+          <p>Die schriftliche Multiple-Choice-Klausur über die Module des 2. Semesters, am Semesterende.</p>
+        </div>
+      </div>
+
+      <div class="block" id="s-mc-detail">
+        <h3>Was dich erwartet</h3>
+        <p>Jedes Semester endet mit einer Multiple-Choice-Semesterabschlussklausur. Im 2. Semester deckt sie vor allem die Module M5–M8 ab und baut auf den Grundlagen der vorherigen Module auf. Das Bestehen ist Voraussetzung für die Leistungspunkte (ECTS) der Module.</p>
+
+        <dl class="rows" style="margin-top:6px">
+          <div class="row"><dt>Format</dt><dd>Multiple-Choice, schriftlich – über die Inhalte der Module M5–M8.</dd></div>
+          <div class="row"><dt>Zeitpunkt</dt><dd>Am Ende des Semesters, an einem anderen Tag als die SMPP.</dd></div>
+          <div class="row"><dt>Anmeldung</dt><dd>Separat über <b>campus.charite.de</b> – im selben Anmeldezeitraum wie die SMPP.</dd></div>
+          <div class="row"><dt>Voraussetzung</dt><dd>Bestehen ist Bedingung für die ECTS der Module des 2. Semesters.</dd></div>
+          <div class="row"><dt>Ergebnisse</dt><dd>Wie bei der SMPP etwa einen Monat später über HIS einsehbar.</dd></div>
+        </dl>
+
+        <div class="callout" style="margin-top:24px">
+          <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <div><b>Die gute Nachricht: ihr habt fast alles schon gelernt.</b>
+            <p>SMPP und MC überlappen thematisch stark. Wer sich gründlich auf die Stationen vorbereitet hat, muss für die MC nur noch gezielt wiederholen – am besten mit Altklausuren und den Anki-Decks im Ordner „MC-Prüfung".</p></div>
+        </div>
+
+        <div class="tips" style="margin-top:24px">
+          <div class="tip">
+            <h5>✅ So bereitest du dich vor</h5>
+            <ul>
+              <li>Alte MC-Klausuren durcharbeiten (Ordner „MC-Prüfung").</li>
+              <li>Mit den Anki-Decks „MSC 2.MC" und „Tellme (M05–M08)" wiederholen.</li>
+              <li>Schwerpunkt auf M5 &amp; M8 (biochemielastig) sowie die Inhalte aus M6 &amp; M7.</li>
+            </ul>
+          </div>
+          <div class="tip">
+            <h5>📌 Nicht verwechseln</h5>
+            <ul>
+              <li>Diese MC ist die <b>Semesterabschlussklausur</b> des 2. Semesters – nicht die große MC-Physikumsklausur, die erst im 5. Semester ansteht.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Material -->
+      <div class="block" id="s-material">
+        <h3>Lernmaterial — alles an einem Ort</h3>
+        <p>Jede Kategorie öffnet den passenden <b>SharePoint-Ordner</b> – mit Charité-Login. Neue Dateien, die ihr in den Ordner legt, erscheinen dort automatisch, ohne dass die Webseite angefasst werden muss. Die Liste unter jedem Button zeigt, was euch im Ordner erwartet.</p>
+
+        <style>
+          .mat{display:flex;flex-direction:column}
+          .mat ul{flex:1;margin-bottom:6px}
+          .mat li a.noLink{cursor:default}
+          .mat li a.noLink:hover{color:var(--ink-soft)}
+          .mat-folder{display:inline-flex;align-items:center;gap:8px;margin-top:auto;font-weight:600;font-size:.9rem;
+            color:var(--teal-900);background:var(--teal-100);padding:10px 16px;border-radius:999px;transition:.2s;align-self:flex-start}
+          .mat-folder:hover{background:var(--teal-700);color:#fff;transform:translateY(-1px);box-shadow:var(--shadow)}
+          .mat-folder.todo{background:var(--paper-2);color:var(--ink-faint);cursor:not-allowed;border:1px dashed var(--line-strong)}
+          .mat-folder.todo:hover{background:var(--paper-2);color:var(--ink-faint);transform:none;box-shadow:none}
+          .mat-all-btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:.98rem;padding:13px 24px;border-radius:999px;
+            background:linear-gradient(180deg,var(--gold-soft),var(--gold));color:#241a06;transition:.22s;box-shadow:0 10px 24px -12px rgba(185,138,46,.7)}
+          .mat-all-btn:hover{transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(185,138,46,.85)}
+        </style>
+
+        <div id="mat-all" style="margin:0 0 24px"></div>
+        <div class="mats" id="mat-grid"><!-- wird automatisch aus dem Block MATERIAL (unten im Script) befüllt --></div>
+      </div>
+
+      <!-- Tipps -->
+      <div class="block" id="s-tipps">
+        <h3>Tipps &amp; Empfehlungen zur SMPP</h3>
+        <p>Konkrete Empfehlungen aus der Handreichung – Fach für Fach.</p>
+        <div class="tips">
+          <div class="tip">
+            <h5>🫁 Basic Life Support</h5>
+            <ul>
+              <li>Lernen mit dem „BLS-Skript“ und „U-Kurs &amp; Notfall“.</li>
+              <li>Tutorien buchen: BLS, Erste Hilfe und Traumatologie.</li>
+              <li>Videos zum Body-Check anschauen.</li>
+            </ul>
+          </div>
+          <div class="tip">
+            <h5>🩺 Körperliche Untersuchung</h5>
+            <ul>
+              <li>Tutorien buchen: Abdomen, Lunge und Herz.</li>
+              <li>Amboss-Videos (auch auf YouTube einsehbar).</li>
+              <li><a href="https://www.ukurs.uni-freiburg.de" target="_blank">ukurs.uni-freiburg.de</a></li>
+            </ul>
+          </div>
+          <div class="tip">
+            <h5>🧬 Biochemie</h5>
+            <ul>
+              <li>Unterschätze den Umfang nicht – 19 Themenkomplexe.</li>
+              <li>Mit den vorhandenen Ausarbeitungen lernen – sehr gute Grundlage.</li>
+              <li>Beim Vertiefen auf häufig geprüfte Themen konzentrieren (Häufigkeitstabelle).</li>
+            </ul>
+          </div>
+          <div class="tip">
+            <h5>🦴 Anatomie</h5>
+            <ul>
+              <li>Embryologie mit Videos lernen (Ninja Nerd Playlist).</li>
+              <li>Histologie über Amboss-Videos (besonders lymphatische Organe).</li>
+              <li>Virtuelles Mikroskop der Charité nutzen (smartzoom).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout" style="margin-top:34px">
+          <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <div><b>Und danach? Die MC-Prüfung wird leichter.</b>
+            <p>Die Themen von SMPP und MC überlappen stark. Wer sich gründlich auf die Stationen vorbereitet hat, kommt mit der MC-Prüfung im 5. Semester gut zurecht – selbst ohne intensives Kreuzen. Ihr schafft das! 💪</p></div>
+        </div>
+      </div>
+
+      <div style="text-align:center;padding:10px 0 30px">
+        <a class="btn btn-gold" onclick="go('home')" style="color:#241a06">← Zurück zur Übersicht</a>
+      </div>
+    </main>
+  </div>
+
+  <footer class="foot">
+    <div class="wrap foot-bot" style="border:none">
+      <span>© 2026 MSC Charité · Von Studierenden, für Studierende</span>
+      <span class="motto" style="font-size:1.05rem;margin:0">مَن طَلَبَ العِلمَ وَجَدَ النور</span>
+    </div>
+  </footer>
+</div><!-- /sem2 -->
+
+<!-- ===================== PLACEHOLDER ===================== -->
+<div id="soon" class="view">
+  <div class="wrap">
+    <div class="crumb"><a onclick="go('home')">Startseite</a> <span>›</span> <b>In Vorbereitung</b></div>
+  </div>
+  <div class="wrap ph">
+    <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="6"/><path d="M12 9v3l2 1"/></svg></div>
+    <h2>Dieser Bereich wird gerade aufgebaut</h2>
+    <p>So wie das 2. Semester wird jeder dieser Bereiche aussehen: mit Überblick, Prüfungen, Materialien und Tipps. Wir arbeiten Semester für Semester daran.</p>
+    <a class="btn btn-gold" onclick="go('sem2')" style="color:#241a06">Zum fertigen 2. Semester →</a>
+  </div>
+  <footer class="foot"><div class="wrap foot-bot" style="border:none"><span>© 2026 MSC Charité</span></div></footer>
+</div>
+
+<script>
+/* ════════════════════════════════════════════════════════════════════════
+   ❗  HIER DIE SHAREPOINT-LINKS EINTRAGEN  (2. Semester · Lernmaterial)  ❗
+
+   So funktioniert es:
+   1)  In Teams oder SharePoint den gewünschten ORDNER öffnen
+       (z. B. „1. Fragenkatalog", „2. nützliche Ausarbeitungen" …).
+   2)  Oben auf „Teilen" bzw. „Link kopieren" klicken.
+   3)  Beim Zugriff „Personen in <Charité …>" auswählen
+       – NIEMALS „Jeder mit dem Link"!  (Datenschutz)
+   4)  Den kopierten Link unten zwischen die Anführungszeichen bei
+       ordner: "…"  einsetzen.
+
+   • Solange ein Link leer ("") ist, zeigt die Seite automatisch
+     „Link folgt" an – es entstehen also nie kaputte Buttons.
+   • Neue Dateien im Ordner erscheinen automatisch – hier muss dann
+     nichts geändert werden.
+   • Optional eine einzelne Datei verlinken: statt   "Dateiname"
+     schreibe   { t: "Dateiname", l: "DATEI-LINK" }
+   ════════════════════════════════════════════════════════════════════════ */
+const KOMPLETT_ORDNER = "https://charitede.sharepoint.com/:f:/s/MSCCloud/IgDrd4dpAvFJQZNtMl0ogqSwAV5pLFwP_edqM6Am_QBv8Vg?e=LVQga8";
+
+const MATERIAL = [
+  {
+    titel: "Fragenkatalog", untertitel: "Offizielle Prüfungsunterlagen", icon: "doc",
+    ordner: "https://charitede.sharepoint.com/:f:/s/MSCCloud/IgAMa0KlzJJ6SJlTIm4lF13kAXKuwspx2T8JrFVmxun9noI?e=q6ZObS",
+    inhalt: [
+      "Fragenkatalog Biochemie Teil 1",
+      "Prüfungsunterlagen Biologie Teil 1",
+      "Stationenprüfung MedPsych / MedSoz / Sozialmed.",
+      "Prüfungsunterlagen Anatomie",
+      "Themenkomplexe SMPP (Excel)"
+    ]
+  },
+  {
+    titel: "Ausarbeitungen", untertitel: "Geprüfte Zusammenfassungen", icon: "notes",
+    ordner: "https://charitede.sharepoint.com/:f:/s/MSCCloud/IgC987HgkmneS4Fb637_slIPAT9FNQDrtd1JI-_sDZ1zfM8?e=PQifNC",
+    inhalt: [
+      "Biochemie – kurz / kompakt / lang",
+      "Anatomie-Ausarbeitung",
+      "Biologie-Ausarbeitung",
+      "Soziologie-Ausarbeitung",
+      "BLS-Skript & U-Kurs / Notfall",
+      "Karteikarten & ausführlicher U-Kurs"
+    ]
+  },
+  {
+    titel: "Anki-Decks", untertitel: "Karteikarten zum Wiederholen", icon: "cards",
+    ordner: "https://charitede.sharepoint.com/:f:/s/MSCCloud/IgDsCAxLaFFxTJKuu8h0B5gPAZPz8Vxn7B0_tJalvHT_BT0?e=9TIhg0",
+    inhalt: [
+      "MSC SMPP 1 · Anatomie",
+      "MSC SMPP 1 · Biologie",
+      "MSC SMPP 1 · Soziologie",
+      "JM-SMPP Version 2025"
+    ]
+  },
+  {
+    titel: "Prüfungsprotokolle", untertitel: "Erfahrungsberichte & Auswertungen", icon: "cube",
+    ordner: "https://charitede.sharepoint.com/:f:/s/MSCCloud/IgCzZuv3saPwT5595MyrLCn8AUTSj7EBVWc2AMNWfD2w4_s?e=AeHy3k",
+    inhalt: [
+      "Auswertungen Anatomie & Biochemie",
+      "Praktisch-Häufigkeiten 2. Semester",
+      "SMPP WiSe 25/26 & SoSe 25",
+      "Ältere Termine (bis SoSe 2018)"
+    ]
+  },
+  {
+    titel: "Excel-Tabellen", untertitel: "Übersichten & Häufigkeiten", icon: "table",
+    ordner: "https://charitede.sharepoint.com/:f:/s/MSCCloud/IgAvyWnWYHTiSIPFCfAF_gRwAaGqDvepq-ARAZzKMoNFbog?e=cOrq1o",
+    inhalt: [
+      "Themenkomplexe-Übersicht",
+      "Häufigkeitstabellen",
+      "Auswertungs- & Planungstabellen"
+    ]
+  },
+  {
+    titel: "Bücher", untertitel: "Vertiefung & Literatur", icon: "book",
+    ordner: "https://charitede.sharepoint.com/:f:/s/MSCCloud/IgCfE1P98uNFQJly9fGoh_SKAR8lYiI4mvBbI2Rl352xFls?e=Cr3DqI",
+    inhalt: [
+      "Lehrbücher zur Vertiefung",
+      "Empfohlene Literatur"
+    ]
+  },
+  {
+    titel: "MC-Prüfung", untertitel: "Nächster Schritt (5. Semester)", icon: "check",
+    ordner: "https://charitede.sharepoint.com/:f:/s/MSCCloud/IgDKOFU83gEuTp-QonhFtn0ZAUnhOyiIjtNy_OcchnqjAG0?e=IQpPxh",
+    inhalt: [
+      "Altklausuren als PDF",
+      "MC-Deck (Stand WiSe 25)",
+      "Tellme 2. Semester (M05–M08)"
+    ]
+  },
+  {
+    titel: "Sonstiges & Organisation", untertitel: "Ablauf, Bewertung & Vortrag", icon: "clock",
+    ordner: "https://charitede.sharepoint.com/:f:/s/MSCCloud/IgAE01yO5UApRrn8ZYCxkcyeAa-mq872m8kOMkHfcODkKrQ?e=Pookzc",
+    inhalt: [
+      "Ablauf der SMPP",
+      "Bewertungsbogen",
+      "Offizielle Präsentation",
+      "SMPP-Notenberechnung",
+      "SMPP-Vortrag (WiSe 2025)"
+    ]
+  }
+];
+/* ════════ Ab hier muss nichts mehr geändert werden ════════ */
+
+const ICONS = {
+  doc:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h9l5 5v13H6z"/><path d="M15 3v5h5"/></svg>',
+  notes:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>',
+  cards:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 4v16"/></svg>',
+  cube: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20l-7-4V8l7-4 7 4v8z"/><path d="M5 8l7 4 7-4M12 12v8"/></svg>',
+  book: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5a2 2 0 012-2h12v18H6a2 2 0 01-2-2z"/><path d="M8 3v16"/></svg>',
+  clock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+  table:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 10h18M3 15h18M9 4v16M15 4v16"/></svg>',
+  check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 5h11M9 12h11M9 19h11"/><path d="M4 5l1.4 1.4L8 4M4 12l1.4 1.4L8 11M4 19l1.4 1.4L8 18"/></svg>'
+};
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function renderMaterial(){
+  const all = document.getElementById('mat-all');
+  if(all) all.innerHTML = (typeof KOMPLETT_ORDNER!=='undefined' && KOMPLETT_ORDNER.trim())
+    ? `<a class="mat-all-btn" href="${KOMPLETT_ORDNER}" target="_blank" rel="noopener">📂 Kompletter Materialordner – alles auf einen Blick →</a>`
+    : '';
+  const grid = document.getElementById('mat-grid');
+  if(!grid) return;
+  grid.innerHTML = MATERIAL.map(cat=>{
+    const items = cat.inhalt.map(it=>{
+      const o = (typeof it==='string') ? {t:it, l:''} : it;
+      const linked = o.l && String(o.l).trim();
+      return linked
+        ? `<li><a href="${o.l}" target="_blank" rel="noopener"><span class="fi">📄</span> ${esc(o.t)} <span class="ar">→</span></a></li>`
+        : `<li><a class="noLink"><span class="fi">›</span> ${esc(o.t)}</a></li>`;
+    }).join('');
+    const has = cat.ordner && String(cat.ordner).trim();
+    const folder = has
+      ? `<a class="mat-folder" href="${cat.ordner}" target="_blank" rel="noopener">📁 Ganzen Ordner öffnen →</a>`
+      : `<span class="mat-folder todo">🔒 Link folgt</span>`;
+    return `<div class="mat"><div class="mat-h"><div class="mat-ic">${ICONS[cat.icon]||ICONS.doc}</div>`
+         + `<div><b>${esc(cat.titel)}</b><small>${esc(cat.untertitel)}</small></div></div>`
+         + `<ul>${items}</ul>${folder}</div>`;
+  }).join('');
+}
+renderMaterial();
+
+function go(id){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0,behavior:'instant' in window ? 'instant':'auto'});
+}
+// reveal blocks on scroll (subtle)
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity=1;e.target.style.transform='none';io.unobserve(e.target);}})},{threshold:.08});
+document.querySelectorAll('.block').forEach(b=>{b.style.opacity=0;b.style.transform='translateY(16px)';b.style.transition='opacity .6s ease, transform .6s ease';io.observe(b);});
+</script>
+</body>
+</html>
