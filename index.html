@@ -85,17 +85,18 @@ img{max-width:100%}
   backdrop-filter:saturate(140%) blur(10px);
   border-bottom:1px solid var(--line);
 }
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
-.brand{display:flex;align-items:center;gap:12px;cursor:pointer}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:66px;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;cursor:pointer;min-width:0}
+.brand-txt{min-width:0}
 .mark{
   width:38px;height:38px;border-radius:11px;flex:0 0 auto;
   background:radial-gradient(120% 120% at 30% 20%, var(--teal-700), var(--teal-900));
   display:grid;place-items:center;box-shadow:inset 0 0 0 1px rgba(217,178,90,.35);
 }
 .mark svg{width:22px;height:22px}
-.brand b{font-family:var(--serif);font-weight:600;letter-spacing:.2px;font-size:1.12rem}
-.brand small{display:block;color:var(--ink-faint);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;margin-top:-2px}
-.nav-links{display:flex;gap:28px;align-items:center;font-size:.93rem;font-weight:500;color:var(--ink-soft)}
+.brand b{font-family:var(--serif);font-weight:600;letter-spacing:.2px;font-size:1.08rem;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand small{display:block;color:var(--ink-faint);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;margin-top:-2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav-links{display:flex;gap:24px;align-items:center;font-size:.93rem;font-weight:500;color:var(--ink-soft)}
 .nav-links a{position:relative}
 .nav-links a:hover{color:var(--teal-700)}
 .nav-cta{
@@ -384,7 +385,7 @@ a[onclick],[role="button"]{cursor:pointer}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 /* nav layout for new actions */
-.nav-end{display:flex;align-items:center;gap:22px}
+.nav-end{display:flex;align-items:center;gap:18px}
 .icon-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;
   background:var(--card);border:1px solid var(--line-strong);border-radius:999px;color:var(--ink-soft);
   font-family:var(--sans);font-size:.9rem;font-weight:600;transition:.2s;padding:9px 14px}
@@ -501,6 +502,8 @@ body.menu-open .nav-toggle .bars span:nth-child(3){top:50%;transform:rotate(-45d
 
 /* small-screen polish (horizontal gutter stays at .wrap's 28px) */
 @media(max-width:600px){
+  .brand small{display:none}
+  .brand b{font-size:1rem}
   .hero-in{padding-top:58px;padding-bottom:62px}
   .sec{padding-top:56px;padding-bottom:56px}
   .sec-head{margin-bottom:30px}
@@ -526,7 +529,7 @@ body.menu-open .nav-toggle .bars span:nth-child(3){top:50%;transform:rotate(-45d
       <div class="mark">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" fill="#D9B25A"/></svg>
       </div>
-      <div>
+      <div class="brand-txt">
         <b>MSC Lernplattform</b>
         <small>Charité · Modellstudiengang</small>
       </div>
