@@ -228,7 +228,9 @@ section{position:relative;z-index:2}
 .st p{margin:0;color:var(--ink-soft);font-size:.93rem}
 .st .mods{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px}
 .mod{font-size:.74rem;font-weight:600;background:var(--paper-2);border:1px solid var(--line);color:var(--ink-soft);padding:3px 9px;border-radius:7px}
-@media(max-width:680px){.stations{grid-template-columns:1fr}}
+.stations.cols3{grid-template-columns:repeat(3,1fr)}
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media(max-width:680px){.stations,.stations.cols3{grid-template-columns:1fr}}
 
 /* passing / example calc */
 .calc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:6px}
@@ -491,7 +493,7 @@ section{position:relative;z-index:2}
         <div class="pcol">
           <span class="pct">33 %</span>
           <h4>Stationsprüfungen</h4>
-          <p>Insgesamt 12 Stationen – verteilt auf das 2. und 4. Semester. Jede Station zählt 2,5 %.</p>
+          <p>Insgesamt 12 Stationen – verteilt auf das 2. und 4. Semester. Bestanden ab 60 % im Mittel aller Stationen.</p>
           <span class="when">2. &amp; 4. Semester</span>
         </div>
         <div class="pcol">
@@ -771,38 +773,39 @@ section{position:relative;z-index:2}
       <!-- Aufbau -->
       <div class="block" id="s-aufbau">
         <h3><span class="bn">01</span> Aufbau der SMPP</h3>
-        <p>Die zwölf Stationsprüfungen machen zusammen ein Drittel des Physikums aus und verteilen sich auf das 2. und 4. Semester. Im 2. Semester legst du <b>vier Stationen</b> ab – zwei mündliche und zwei praktische. Jede Station zählt 2,5 %.</p>
-        <div class="stations" style="grid-template-columns:repeat(3,1fr)">
+        <p>Die Stationenprüfung ist eine <b>semesterübergreifende Gesamtprüfung</b> aus insgesamt <b>zwölf Stationen</b>, verteilt auf das 2. und 4. Semester. Im 2. Semester legst du <b>Teil 1</b> mit vier Stationen ab: zwei praktische im OSCE-Format (objektive, strukturierte klinische Prüfung) und zwei mündliche Grundlagenfach-Stationen. Zusammen entsprechen alle drei Teile grob einem Drittel des Physikums.</p>
+        <div class="stations cols3">
           <div class="st" style="background:linear-gradient(135deg,#13453E,#0E3531);color:#EDE7D9;border:none">
             <div class="s-num" style="font-family:var(--serif);font-size:2.2rem;color:var(--gold-soft)">4</div>
-            <div class="st-kind" style="color:var(--gold-soft)">2. Semester</div>
-            <h4 style="color:#fff">Stationen · 11 %</h4>
-            <p style="color:#C3D0CA">Dein aktueller Abschnitt.</p>
+            <div class="st-kind" style="color:var(--gold-soft)">Teil 1 · nach dem 2. FS</div>
+            <h4 style="color:#fff">Dein Abschnitt</h4>
+            <p style="color:#C3D0CA">2 OSCE-Stationen (praktisch) + 2 Grundlagenfächer (mündlich).</p>
           </div>
           <div class="st">
             <div class="s-num" style="font-family:var(--serif);font-size:2.2rem;color:var(--teal-900)">4</div>
-            <div class="st-kind">4. Semester</div>
-            <h4>praktische · 11 %</h4>
-            <p>Folgt später.</p>
+            <div class="st-kind">Teil 2 · nach dem 4. FS</div>
+            <h4>Grundlagenfächer</h4>
+            <p>Vier mündliche Stationen. Folgt später.</p>
           </div>
           <div class="st">
             <div class="s-num" style="font-family:var(--serif);font-size:2.2rem;color:var(--teal-900)">4</div>
-            <div class="st-kind">4. Semester</div>
-            <h4>mündliche · 11 %</h4>
-            <p>Folgt später.</p>
+            <div class="st-kind">Teil 3 · nach dem 4. FS</div>
+            <h4>OSCE</h4>
+            <p>Vier praktische Stationen. Folgt später.</p>
           </div>
         </div>
+        <p style="margin-top:18px;font-size:.9rem;color:var(--ink-faint)">Die zwölf Stationen werden als <b>eine</b> Prüfung gewertet: Besteht du sie insgesamt nicht, wird die komplette Stationenprüfung wiederholt – höchstens zweimal.</p>
       </div>
 
       <!-- Stationen -->
       <div class="block" id="s-stationen">
         <h3><span class="bn">02</span> Die vier Stationen im Detail</h3>
-        <p>Zwei mündliche und zwei praktische Prüfungen. In Biochemie wirst du immer geprüft – beim zweiten mündlichen Fach hast du die Wahl.</p>
+        <p>Zwei mündliche und zwei praktische Stationen. Die praktischen laufen im <b>OSCE-Format</b> (je 8 Min), die mündlichen als <b>Grundlagenfach-Prüfung</b> (je 10 Min). In Biochemie wirst du immer geprüft; das zweite mündliche Fach ist entweder Anatomie/Biologie oder Medizinische Soziologie/Psychologie/Sozialmedizin.</p>
         <div class="stations">
           <div class="st">
             <div class="st-top">
               <div class="st-ic m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 3v5a4 4 0 008 0V3M6 21h12M9 14c0 3-3 3-3 7M15 14c0 3 3 3 3 7"/></svg></div>
-              <div><div class="st-kind">Mündlich · Pflichtfach</div><h4>Biochemie</h4></div>
+              <div><div class="st-kind">Mündlich · Pflichtfach · 10 Min</div><h4>Biochemie</h4></div>
             </div>
             <p>Abgefragt werden Module M2–M4 aus dem 1. Semester sowie M5 und M8 aus dem 2. Semester. Insgesamt 19 Themenkomplexe.</p>
             <div class="mods"><span class="mod">M2</span><span class="mod">M3</span><span class="mod">M4</span><span class="mod">M5</span><span class="mod">M8</span></div>
@@ -810,7 +813,7 @@ section{position:relative;z-index:2}
           <div class="st">
             <div class="st-top">
               <div class="st-ic m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M5 8l7-5 7 5M5 8v8l7 5 7-5V8"/></svg></div>
-              <div><div class="st-kind">Mündlich · Wahlfach</div><h4>Anatomie / Biologie / Soziologie</h4></div>
+              <div><div class="st-kind">Mündlich · Wahlfach · 10 Min</div><h4>Anatomie / Biologie / Soziologie</h4></div>
             </div>
             <p>Anatomie: Grundlagen 1. Sem + M8 · Biologie: Grundlagen 1. Sem + M5 · Soziologie: gesellschaftswissenschaftliche Inhalte (MedSoz / Gesundheit &amp; Gesellschaft).</p>
             <div class="mods"><span class="mod">Anatomie · M8</span><span class="mod">Biologie · M5</span><span class="mod">Soziologie · MedSoz</span></div>
@@ -818,7 +821,7 @@ section{position:relative;z-index:2}
           <div class="st">
             <div class="st-top">
               <div class="st-ic p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.3-7-9a4 4 0 017-2.6A4 4 0 0119 12c0 4.7-7 9-7 9z"/><path d="M3 12h4l1.5-3 2 6 1.5-3H21" stroke-width="1.6"/></svg></div>
-              <div><div class="st-kind">Praktisch</div><h4>Basic Life Support</h4></div>
+              <div><div class="st-kind">Praktisch · OSCE · 8 Min</div><h4>Basic Life Support</h4></div>
             </div>
             <p>Inhalte aus der Notfallwoche in Modul 1 – Reanimation (Erwachsene &amp; Baby) und der Body-Check.</p>
             <div class="mods"><span class="mod">Notfallwoche · M1</span><span class="mod">REA</span><span class="mod">Body Check</span></div>
@@ -826,7 +829,7 @@ section{position:relative;z-index:2}
           <div class="st">
             <div class="st-top">
               <div class="st-ic p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="7" r="3"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg></div>
-              <div><div class="st-kind">Praktisch</div><h4>Untersuchungskurs</h4></div>
+              <div><div class="st-kind">Praktisch · OSCE · 8 Min</div><h4>Untersuchungskurs</h4></div>
             </div>
             <p>Praktische Fähigkeiten aus den U-Kursen des 1. &amp; 2. Semesters. In der Praxis wiederholen sich häufig bestimmte „Altfälle“.</p>
             <div class="mods"><span class="mod">U-Kurs 1. Sem</span><span class="mod">U-Kurs 2. Sem</span></div>
@@ -837,7 +840,7 @@ section{position:relative;z-index:2}
       <!-- Bestehen -->
       <div class="block" id="s-bestehen">
         <h3><span class="bn">03</span> Bestehen &amp; Notenrechnung</h3>
-        <p>Zum Bestehen brauchst du über alle 12 Stationen im Schnitt mindestens 60 %. Da 6 davon praktisch sind und meist sehr gut bewertet werden, lassen sich schwächere mündliche Leistungen gut ausgleichen. Drei Beispiele aus der Handreichung:</p>
+        <p>Bestanden ist die Stationenprüfung, wenn das <b>arithmetische Mittel aller zwölf Stationsbewertungen mindestens 60 %</b> erreicht – du musst also <b>nicht jede einzelne Station</b> bestehen. Da sechs Stationen praktisch sind und erfahrungsgemäß sehr gut bewertet werden, lassen sich schwächere mündliche Leistungen gut ausgleichen. Drei Beispiele aus der Handreichung:</p>
         <div class="calc-grid">
           <div class="calc ok">
             <div class="ch">Fallbeispiel 1 · komfortabel</div>
@@ -870,18 +873,21 @@ section{position:relative;z-index:2}
             <p class="tot"><span>SMPP 2</span><b>45 %</b></p>
           </div>
         </div>
-        <p style="margin-top:22px;font-size:.9rem;color:var(--ink-faint)">Selbst Fallbeispiel 3 führt im Gesamtexamen zusammen mit MC und Hausarbeit noch zum Bestehen (≈ 58 %). Die SMPP ist eben nur ein Drittel.</p>
+        <p style="margin-top:22px;font-size:.9rem;color:var(--ink-faint)">Die „SMPP 2"-Werte sind nur der Mittelwert der vier Stationen aus Teil 1. Die 60-%-Grenze gilt für das arithmetische Mittel <b>aller zwölf Stationen</b> (Teil 1, 2 und 3) – ein schwächerer Teil 1 lässt sich also später über die Teile 2 und 3 noch ausgleichen.</p>
       </div>
 
       <!-- Ablauf -->
       <div class="block" id="s-ablauf">
-        <h3><span class="bn">04</span> Ablauf &amp; Anmeldung</h3>
-        <p>Du meldest dich – wie für die MC-Prüfung – über <b>campus.charite.de</b> an. Im 2. Semester sind das zwei Anmeldungen (MC und SMPP), beide im selben Zeitraum.</p>
+        <h3><span class="bn">04</span> Ablauf, Termine &amp; Anmeldung</h3>
+        <p>Die Anmeldung läuft – wie bei der MC-Prüfung – über <b>campus.charite.de</b>. Im 2. Semester sind das zwei getrennte Anmeldungen (SMPP und MC) im selben Zeitraum. Du kannst nur den <b>gesamten Teil 1</b> anmelden, nicht einzelne Stationen.</p>
 
         <div class="dates">
-          <div class="dcard"><div class="dl">1. Termin · Anmeldefrist</div><div class="dv">16.12.2025 – 06.01.2026</div></div>
-          <div class="dcard"><div class="dl">2. Termin · Anmeldefrist</div><div class="dv">05.03. – 13.03.2026</div></div>
+          <div class="dcard"><div class="dl">Anmeldung · 1. Termin</div><div class="dv">16.06. – 29.06.2026</div></div>
+          <div class="dcard"><div class="dl">Anmeldung · 2. Termin</div><div class="dv">25.08. – 07.09.2026</div></div>
+          <div class="dcard"><div class="dl">Prüfungsphase · 1. Termin</div><div class="dv">20.07. – 07.08.2026</div></div>
+          <div class="dcard"><div class="dl">Ergebnisse · 1. Termin</div><div class="dv">vsl. 26.08.2026</div></div>
         </div>
+        <p style="margin:12px 0 0;font-size:.85rem;color:var(--ink-faint)">Quelle: Bekanntmachung „Termine und Fristen SoSe 2026" des Prüfungsausschusses. Die genauen Prüfungstage werden <b>zufällig zugeteilt</b> – halte die ganze Prüfungsphase frei.</p>
 
         <div class="callout" style="margin-top:18px">
           <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg></div>
@@ -889,17 +895,27 @@ section{position:relative;z-index:2}
             <p>Innere Medizin, Sauerbruchweg 2. Das offizielle Infomaterial liegt auf Moodle unter Modul 08 › „M08-Vortrag-Info Stationenprüfung", der Fragenkatalog im Campusnet unter Prüfungen › mündlich-praktische Prüfung › „Stationenprüfung 1 – Grundlagenfächer".</p></div>
         </div>
 
-        <dl class="rows" style="margin-top:20px">
-          <div class="row"><dt>Dauer</dt><dd>Die SMPP wird regulär über vier Tage verteilt; deinen konkreten Tag erfährst du 1–2 Wochen vorher.</dd></div>
+        <dl class="rows" style="margin-top:22px">
+          <div class="row"><dt>Ladung &amp; Tag</dt><dd>Tag, Uhrzeit und Räume erfährst du <b>spätestens 7 Kalendertage vorher</b> über campus.charite.de. Diese Online-Veröffentlichung gilt als Ladung – es kommt keine zusätzliche Mail oder Post.</dd></div>
+          <div class="row"><dt>Zwei Ladungen</dt><dd>Du bekommst <b>zwei Ladungszeiten und zwei Räume</b> (im Virchowweg 23): vormittags zu den OSCE-Stationen, nachmittags desselben Tages zu den Grundlagenfächern.</dd></div>
+          <div class="row"><dt>Anwesenheit &amp; Klebchen</dt><dd>Bei der ersten (Vormittags-)Ladung: Anwesenheitskontrolle mit Lichtbildausweis, kurze Einführung und Ausgabe der Klebchen/Etiketten (Name + Matrikelnr.). Die gibst du an jeder Station ab – <b>nicht verlieren</b>, nachmittags wieder mitbringen. Die Prüflingseinführung kommt vorab digital als PDF.</dd></div>
+          <div class="row"><dt>Glockensignale</dt><dd>Jede Station startet und endet mit einem Klingeln. <b>OSCE:</b> Zwischenklingeln nach 6 Min (noch 2 Min). <b>Grundlagenfächer:</b> Zwischenklingeln nach 7 Min (noch 3 Min). Nach dem Schlussklingeln den Raum sofort verlassen.</dd></div>
+          <div class="row"><dt>Mitbringen</dt><dd>Kittel, Stethoskop (für die OSCE-Stationen) und Lichtbildausweis.</dd></div>
+          <div class="row"><dt>Ergebnisse &amp; Feedback</dt><dd>Nicht am Prüfungstag, sondern pro Station in Prozent über campus.charite.de (1. Termin: vsl. 26.08.2026). Für die OSCE-Stationen gibt es zusätzlich eine „Erweiterte Rückmeldung" als PDF; ein mündliches Feedback gibt es nicht.</dd></div>
+          <div class="row"><dt>Wiederholung</dt><dd>Die Stationenprüfung lässt sich höchstens <b>zweimal</b> wiederholen – und immer als Ganzes (alle Teile).</dd></div>
           <div class="row"><dt>Separater Tag</dt><dd>SMPP und MC-Prüfung finden an unterschiedlichen Tagen statt.</dd></div>
-          <div class="row"><dt>Ergebnisse</dt><dd>Nicht am Prüfungstag, sondern ca. einen Monat später über HIS unter „Individuelle Prüfungsergebnisse“.</dd></div>
-          <div class="row"><dt>Mitbringen</dt><dd>Kittel, Stethoskop (für die praktischen Stationen) und Lichtbildausweis.</dd></div>
         </dl>
 
         <div class="day">
-          <div class="slot am"><div class="tm">ab 9:00</div><b>Vormittags</b><small>2 praktische Prüfungen</small></div>
-          <div class="slot br"><div class="tm">Pause</div><b>bis zu 2 Std.</b><small>zwischen den Blöcken</small></div>
-          <div class="slot pm"><div class="tm">Nachmittags</div><b>2 mündliche Prüfungen</b><small>Grundlagenfächer</small></div>
+          <div class="slot am"><div class="tm">1. Ladung · vormittags</div><b>2 OSCE-Stationen</b><small>je 8 Min · praktisch</small></div>
+          <div class="slot br"><div class="tm">dazwischen</div><b>Pause</b><small>zwei getrennte Ladungen</small></div>
+          <div class="slot pm"><div class="tm">2. Ladung · nachmittags</div><b>2 Grundlagenfächer</b><small>je 10 Min · mündlich</small></div>
+        </div>
+
+        <div class="callout" style="margin-top:22px;background:linear-gradient(135deg,#8a4a39,#6d3528)">
+          <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg></div>
+          <div><b>Krank am Prüfungstag?</b>
+            <p style="color:#F3DCD4">Den Rücktritt möglichst <b>vor Prüfungsbeginn</b> der prüfenden oder aufsichtführenden Person anzeigen und <b>unverzüglich</b> eine ärztliche Bescheinigung der Prüfungsunfähigkeit im Referat vorlegen. Dann zählt der Versuch nicht und kann nachgeholt werden. Ohne Nachweis wird die Prüfung mit „nicht bestanden" gewertet. Wer erst nachmittags zu den Grundlagenfächern erscheint, gilt als gar nicht angetreten.</p></div>
         </div>
       </div>
 
@@ -908,7 +924,7 @@ section{position:relative;z-index:2}
         <h3><span class="bn">05</span> Häufigkeiten der Prüfungen</h3>
         <p>Welche Stationen kommen wie oft dran? Aus den Auswertungen der letzten Semester – nutze das als Orientierung für deine Schwerpunkte.</p>
 
-        <table class="tbl">
+        <div class="tbl-scroll"><table class="tbl">
           <thead><tr><th>Praktische Station</th><th>Häufigkeit</th><th></th></tr></thead>
           <tbody>
             <tr><td class="topic">Body Check</td><td><span class="freq"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></td><td class="pct-pill">fast immer</td></tr>
@@ -918,7 +934,7 @@ section{position:relative;z-index:2}
             <tr><td class="topic">Kopfschmerzanamnese</td><td><span class="freq"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></td><td class="pct-pill">häufig</td></tr>
             <tr><td class="topic">REA Erwachsene</td><td><span class="freq"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></td><td class="pct-pill">gelegentlich</td></tr>
           </tbody>
-        </table>
+        </table></div>
 
         <p style="margin:28px 0 14px;font-weight:600;color:var(--teal-900)">Biochemie · 19 Themenkomplexe <span style="font-weight:400;color:var(--ink-faint)">— golden markiert = besonders häufig geprüft</span></p>
         <div class="tk">
@@ -939,6 +955,49 @@ section{position:relative;z-index:2}
           <div class="tkc"><span class="tkn">17</span> Hormone &amp; Signaltransduktion</div>
           <div class="tkc hot"><span class="tkn">18</span> Blut, Hämostase, Eisenstoffwechsel <span class="star">★</span></div>
           <div class="tkc"><span class="tkn">19</span> Immunologie</div>
+        </div>
+      </div>
+
+      <!-- Offizielle Unterlagen -->
+      <div class="block" id="s-quellen">
+        <h3><span class="bn">06</span> Offizielle Unterlagen</h3>
+        <p>Die maßgeblichen Originaldokumente des Prüfungsbereichs auf Campusnet – immer die verbindliche Quelle, falls sich etwas ändert.</p>
+        <div class="tips">
+          <div class="tip">
+            <h5>📋 Ablauf &amp; Regeln</h5>
+            <ul>
+              <li><a href="https://campusnet.charite.de/fileadmin/user_upload/microsites/ohne_AZ/sonstige/campusnet/downloads/humanmedizin/pruefungen/Allg_Info_Stationen-Pr%C3%BCfung.pdf" target="_blank" rel="noopener">Allgemeine Informationen (PDF)</a></li>
+              <li><a href="https://campusnet.charite.de/fileadmin/user_upload/microsites/ohne_AZ/sonstige/campusnet/downloads/humanmedizin/pruefungen/Rahmenbedingungen_Stationen-Pr%C3%BCfung.pdf" target="_blank" rel="noopener">Rahmenbedingungen (PDF)</a></li>
+              <li><a href="https://campusnet.charite.de/fileadmin/user_upload/microsites/ohne_AZ/sonstige/campusnet/downloads/humanmedizin/pruefungen/Information_zum_Ablauf_Stationenpr_Teil1.pdf" target="_blank" rel="noopener">Ablauf Stationsprüfung Teil 1 (PDF)</a></li>
+              <li><a href="https://campusnet.charite.de/fileadmin/user_upload/microsites/ohne_AZ/sonstige/campusnet/downloads/humanmedizin/pruefungen/Pr%C3%BCfungen_2025/StaPr_2_Semester_12.1.25.pdf" target="_blank" rel="noopener">Infoveranstaltung Teil 1 · Folien (PDF)</a></li>
+              <li><a href="https://vimeo.com/24940008" target="_blank" rel="noopener">OSCE-Prüfungsformat · Video</a></li>
+            </ul>
+          </div>
+          <div class="tip">
+            <h5>🧮 Bewertung</h5>
+            <ul>
+              <li><a href="https://campusnet.charite.de/fileadmin/user_upload/microsites/ohne_AZ/sonstige/campusnet/downloads/humanmedizin/pruefungen/Bewertungsbogen_Stationenpr%C3%BCfung.pdf" target="_blank" rel="noopener">Bewertungsbogen Grundlagenfächer (PDF)</a></li>
+              <li>Grundlagenfächer: „Wissen" und „Verständnis/Zusammenhänge" zu gleichen Teilen.</li>
+              <li>OSCE: hochstandardisierte Checklisten.</li>
+            </ul>
+          </div>
+          <div class="tip">
+            <h5>📚 Themenkomplexe (Teil 1)</h5>
+            <ul>
+              <li><a href="https://campusnet.charite.de/fileadmin/user_upload/microsites/ohne_AZ/sonstige/campusnet/downloads/humanmedizin/pruefungen/Pr%C3%BCfungen_2025/Fragenkatalog_Biochemie_Teil_1_Version_WiSe2025_26.pdf" target="_blank" rel="noopener">Biochemie (PDF)</a></li>
+              <li><a href="https://campusnet.charite.de/fileadmin/user_upload/microsites/ohne_AZ/sonstige/campusnet/downloads/humanmedizin/pruefungen/Pr%C3%BCfungen_2025/2FS_Pr%C3%BCfungsunterlagen_Anatomie_abWiSe2025-2026.pdf" target="_blank" rel="noopener">Anatomie (PDF)</a></li>
+              <li><a href="https://campusnet.charite.de/fileadmin/user_upload/microsites/ohne_AZ/sonstige/campusnet/downloads/humanmedizin/pruefungen/1609_Pr%C3%BCfungsunterlagen_Biologie_Teil_1.pdf" target="_blank" rel="noopener">Biologie (PDF)</a></li>
+              <li><a href="https://campusnet.charite.de/fileadmin/user_upload/microsites/ohne_AZ/sonstige/campusnet/downloads/humanmedizin/pruefungen/2204_Pr%C3%BCfungsunterlagen_Stationenpr%C3%BCfung_MedPsych_MedSoz_Sozialmed_Teil1.pdf" target="_blank" rel="noopener">MedSoz / MedPsych / Sozialmed (PDF)</a></li>
+            </ul>
+          </div>
+          <div class="tip">
+            <h5>🗓️ Termine</h5>
+            <ul>
+              <li><a href="https://campusnet.charite.de/fileadmin/user_upload/microsites/ohne_AZ/sonstige/campusnet/downloads/humanmedizin/pruefungen/Pr%C3%BCfungen_2026/Termine_und_Fristen_MSM_SoSe26.pdf" target="_blank" rel="noopener">Termine &amp; Fristen SoSe 2026 (PDF)</a></li>
+              <li><a href="https://campusnet.charite.de/fileadmin/user_upload/microsites/ohne_AZ/sonstige/campusnet/downloads/humanmedizin/pruefungen/Pr%C3%BCfungen_2026/MSM.WOCHENPLAN_SoSe26.docx.pdf" target="_blank" rel="noopener">Wochenplan SoSe 2026 (PDF)</a></li>
+              <li><a href="https://campusnet.charite.de/studiengaenge/humanmedizin/pruefungen" target="_blank" rel="noopener">Prüfungen-Übersicht (Campusnet)</a></li>
+            </ul>
+          </div>
         </div>
       </div>
 
