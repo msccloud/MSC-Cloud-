@@ -1,0 +1,25 @@
+{
+  "name": "MSC Lernplattform · Charité",
+  "short_name": "MSC Lernplattform",
+  "description": "Lernplattform der Muslimischen Hochschulgruppe der Charité – Ausarbeitungen, Anki-Decks, Prüfungsprotokolle und Tipps für den Modellstudiengang Medizin.",
+  "lang": "de",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FBF8F1",
+  "theme_color": "#0E3531",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

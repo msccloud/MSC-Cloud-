@@ -2,8 +2,35 @@
 <html lang="de">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>MSC Lernplattform · Charité</title>
+<meta name="description" content="Die Lernplattform der Muslimischen Hochschulgruppe der Charité: Ausarbeitungen, Anki-Decks, Prüfungsprotokolle, Modulübersichten und ehrliche Tipps für den Modellstudiengang Medizin – von Studierenden für Studierende.">
+<meta name="author" content="MSC – Muslimische Hochschulgruppe der Charité">
+<meta name="theme-color" content="#0E3531">
+<meta name="color-scheme" content="light">
+<meta name="application-name" content="MSC Lernplattform">
+<meta name="apple-mobile-web-app-title" content="MSC Lernplattform">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<!-- Open Graph / Sharing -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MSC Lernplattform · Charité">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="MSC Lernplattform · Charité">
+<meta property="og:description" content="Ausarbeitungen, Anki-Decks, Prüfungsprotokolle & Tipps für den Modellstudiengang Medizin – von Studierenden für Studierende.">
+<meta property="og:image" content="og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MSC Lernplattform · Charité">
+<meta name="twitter:description" content="Ausarbeitungen, Anki-Decks, Prüfungsprotokolle & Tipps für den Modellstudiengang Medizin – von Studierenden für Studierende.">
+<meta name="twitter:image" content="og-image.png">
+<!-- Icons -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2032%2032%27%3E%3Crect%20width%3D%2732%27%20height%3D%2732%27%20rx%3D%278%27%20fill%3D%27%230E3531%27%2F%3E%3Cg%20fill%3D%27none%27%20stroke%3D%27%23D9B25A%27%20stroke-width%3D%272%27%20stroke-linejoin%3D%27round%27%20stroke-linecap%3D%27round%27%3E%3Cpath%20d%3D%27M16%205%20L26%209%20V16%20C26%2022%2021%2026%2016%2027%20C11%2026%206%2022%206%2016%20V9%20Z%27%2F%3E%3Cpath%20d%3D%27M16%2011%20v8%20M12%2015%20h8%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Hanken+Grotesk:wght@400;500;600;700&family=Amiri&display=swap" rel="stylesheet">
@@ -320,7 +347,8 @@ section{position:relative;z-index:2}
 
 /* footer */
 .foot{background:linear-gradient(160deg,#0E3531,#0A2724);color:#C3D0CA;margin-top:40px;position:relative;z-index:2}
-.foot-in{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding:64px 0 40px}
+.foot-in{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding:64px 0 40px}
+@media(max-width:980px) and (min-width:761px){.foot-in{grid-template-columns:1fr 1fr}}
 .foot .motto{margin:0 0 8px}
 .foot h6{color:#fff;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 16px;font-weight:700}
 .foot a{display:block;padding:6px 0;font-size:.92rem;color:#AEBDB6}
@@ -328,46 +356,224 @@ section{position:relative;z-index:2}
 .foot p{font-size:.92rem;max-width:34ch;color:#9FB0A8}
 .foot-bot{border-top:1px solid rgba(217,178,90,.15);padding:20px 0;font-size:.82rem;color:#86978f;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 @media(max-width:760px){.foot-in{grid-template-columns:1fr;gap:28px}}
+
+/* ===================== A11Y, NAV, SEARCH, UX (added) ===================== */
+/* keyboard focus */
+:focus{outline:none}
+:focus-visible{outline:2.5px solid var(--teal-500);outline-offset:3px;border-radius:6px}
+.hero :focus-visible,.foot :focus-visible,.callout :focus-visible,.tool :focus-visible,.exam-head :focus-visible{outline-color:var(--gold-soft)}
+a[onclick],[role="button"]{cursor:pointer}
+
+/* skip link */
+.skip-link{position:fixed;top:10px;left:50%;transform:translate(-50%,-160%);z-index:200;
+  background:var(--teal-900);color:#fff;font-weight:600;font-size:.92rem;padding:11px 20px;border-radius:999px;
+  border:1px solid var(--gold-soft);box-shadow:var(--shadow-lg);transition:transform .2s}
+.skip-link:focus-visible{transform:translate(-50%,0)}
+
+/* visually hidden */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* nav layout for new actions */
+.nav-end{display:flex;align-items:center;gap:22px}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;
+  background:var(--card);border:1px solid var(--line-strong);border-radius:999px;color:var(--ink-soft);
+  font-family:var(--sans);font-size:.9rem;font-weight:600;transition:.2s;padding:9px 14px}
+.icon-btn:hover{border-color:var(--teal-500);color:var(--teal-900);box-shadow:var(--shadow)}
+.icon-btn svg{width:18px;height:18px;flex:0 0 auto}
+.nav-search .kbd{display:inline-flex;gap:2px;font-size:.7rem;color:var(--ink-faint);background:var(--paper-2);
+  border:1px solid var(--line);border-radius:6px;padding:2px 6px;font-weight:700;letter-spacing:.02em}
+.nav-toggle{display:none;width:42px;height:42px;padding:0}
+.nav-toggle .bars{position:relative;width:18px;height:14px}
+.nav-toggle .bars span{position:absolute;left:0;width:100%;height:2px;border-radius:2px;background:currentColor;transition:.25s;top:50%}
+.nav-toggle .bars span:nth-child(1){top:1px}.nav-toggle .bars span:nth-child(3){top:13px}
+body.menu-open .nav-toggle .bars span:nth-child(1){top:50%;transform:rotate(45deg)}
+body.menu-open .nav-toggle .bars span:nth-child(2){opacity:0}
+body.menu-open .nav-toggle .bars span:nth-child(3){top:50%;transform:rotate(-45deg)}
+
+/* mobile drawer */
+.mobile-menu{display:none}
+@media(max-width:760px){
+  .nav-search .label,.nav-search .kbd{display:none}
+  .nav-search{padding:10px}
+  .nav-cta{display:none}
+  .nav-toggle{display:inline-flex}
+  .nav-end{gap:10px}
+  .mobile-menu{display:block;position:fixed;inset:66px 0 auto 0;z-index:29;
+    background:rgba(251,248,241,.97);backdrop-filter:saturate(140%) blur(10px);
+    border-bottom:1px solid var(--line);box-shadow:var(--shadow-lg);
+    transform:translateY(-12px);opacity:0;visibility:hidden;transition:.24s;max-height:calc(100dvh - 66px);overflow:auto}
+  body.menu-open .mobile-menu{transform:none;opacity:1;visibility:visible}
+  .mobile-menu .mm-in{padding:14px 22px 26px}
+  .mobile-menu a{display:flex;align-items:center;justify-content:space-between;padding:15px 4px;
+    font-size:1.05rem;font-weight:600;color:var(--ink);border-bottom:1px solid var(--line)}
+  .mobile-menu a:last-of-type{border-bottom:none}
+  .mobile-menu a .chev{color:var(--ink-faint)}
+  .mobile-menu .mm-cta{margin-top:16px;width:100%;justify-content:center;font-size:1rem;
+    background:linear-gradient(180deg,var(--gold-soft),var(--gold));color:#241a06;border:none;padding:14px;border-radius:999px;font-weight:700}
+}
+@media(min-width:761px){.mobile-menu{display:none!important}}
+
+/* command palette / search */
+.cmdk-backdrop{position:fixed;inset:0;z-index:100;background:rgba(14,42,38,.42);backdrop-filter:blur(4px);
+  opacity:0;visibility:hidden;transition:.18s;display:flex;align-items:flex-start;justify-content:center;padding:14vh 18px 18px}
+.cmdk-backdrop.open{opacity:1;visibility:visible}
+.cmdk{width:100%;max-width:600px;background:var(--card);border:1px solid var(--line-strong);border-radius:18px;
+  box-shadow:var(--shadow-lg);overflow:hidden;transform:translateY(-10px) scale(.985);transition:.2s;display:flex;flex-direction:column;max-height:72vh}
+.cmdk-backdrop.open .cmdk{transform:none}
+.cmdk-top{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line)}
+.cmdk-top svg{width:20px;height:20px;color:var(--teal-700);flex:0 0 auto}
+.cmdk-top input{flex:1;border:none;outline:none;background:transparent;font-family:var(--sans);font-size:1.08rem;color:var(--ink)}
+.cmdk-top input::placeholder{color:var(--ink-faint)}
+.cmdk-esc{font-size:.7rem;font-weight:700;color:var(--ink-faint);background:var(--paper-2);border:1px solid var(--line);border-radius:6px;padding:3px 7px}
+.cmdk-results{overflow:auto;padding:8px}
+.cmdk-group{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;padding:12px 12px 6px}
+.cmdk-item{display:flex;align-items:center;gap:13px;padding:11px 12px;border-radius:11px;cursor:pointer;scroll-margin:8px}
+.cmdk-item .ci-ic{width:34px;height:34px;border-radius:9px;background:var(--paper-2);color:var(--teal-700);display:grid;place-items:center;flex:0 0 auto}
+.cmdk-item .ci-ic svg{width:18px;height:18px}
+.cmdk-item .ci-t{font-weight:600;font-size:.97rem;line-height:1.2}
+.cmdk-item .ci-s{font-size:.8rem;color:var(--ink-faint);margin-top:1px}
+.cmdk-item .ci-arrow{margin-left:auto;color:var(--ink-faint);opacity:0;transition:.15s}
+.cmdk-item.active{background:var(--teal-100)}
+.cmdk-item.active .ci-ic{background:var(--teal-700);color:#fff}
+.cmdk-item.active .ci-arrow{opacity:1}
+.cmdk-item:hover{background:var(--paper-2)}
+.cmdk-empty{padding:34px 16px;text-align:center;color:var(--ink-faint);font-size:.95rem}
+.cmdk-foot{display:flex;gap:18px;padding:11px 16px;border-top:1px solid var(--line);font-size:.76rem;color:var(--ink-faint);flex-wrap:wrap}
+.cmdk-foot b{color:var(--ink-soft)}
+.cmdk-foot .k{font-family:var(--sans);font-weight:700;background:var(--paper-2);border:1px solid var(--line);border-radius:5px;padding:1px 6px;margin-right:4px}
+@media(max-width:760px){.cmdk-backdrop{padding:8vh 12px 12px}.cmdk-foot{display:none}}
+
+/* back to top */
+.to-top{position:fixed;right:20px;bottom:20px;z-index:40;width:46px;height:46px;border-radius:50%;
+  background:var(--teal-900);color:var(--gold-soft);border:1px solid rgba(217,178,90,.4);cursor:pointer;
+  display:grid;place-items:center;box-shadow:var(--shadow-lg);opacity:0;visibility:hidden;transform:translateY(10px);transition:.25s}
+.to-top.show{opacity:1;visibility:visible;transform:none}
+.to-top:hover{background:var(--teal-700)}
+.to-top svg{width:20px;height:20px}
+@media print{.to-top{display:none}}
+
+/* mobile in-page section nav (replaces sticky TOC on small screens) */
+.toc-mobile{display:none}
+@media(max-width:900px){
+  .toc-mobile{display:block;position:sticky;top:66px;z-index:20;margin:0 0 8px;
+    background:rgba(251,248,241,.95);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:12px}
+  .toc-mobile summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;
+    padding:13px 16px;font-weight:700;font-size:.92rem;color:var(--teal-900)}
+  .toc-mobile summary::-webkit-details-marker{display:none}
+  .toc-mobile summary .tm-ic{transition:.2s}
+  .toc-mobile[open] summary .tm-ic{transform:rotate(180deg)}
+  .toc-mobile .tm-links{padding:4px 10px 12px;display:grid;gap:2px}
+  .toc-mobile .tm-links a{padding:9px 10px;border-radius:8px;color:var(--ink-soft);font-size:.92rem;font-weight:500}
+  .toc-mobile .tm-links a:active,.toc-mobile .tm-links a.active{background:var(--teal-100);color:var(--teal-900)}
+}
+
+/* scrollspy active state for desktop TOC */
+.toc a.active{color:var(--teal-900);border-color:var(--teal-700);font-weight:700;background:linear-gradient(90deg,var(--teal-100),transparent)}
+
+/* reduced motion */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .view.active{animation:none}
+  .block{opacity:1!important;transform:none!important}
+}
+
+/* print */
+@media print{
+  .nav,.mobile-menu,.cmdk-backdrop,.to-top,.toc,.toc-mobile,.hero-cta,.skip-link{display:none!important}
+  body::before{display:none}
+  .view{display:none!important}.view.active{display:block!important}
+  .det-body{grid-template-columns:1fr!important}
+  .block{opacity:1!important;transform:none!important;break-inside:avoid;margin-bottom:24px}
+  a{color:#000;text-decoration:underline}
+  .hero,.foot,.exam-head,.callout,.tool{color:#000!important;background:#fff!important}
+}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main" onclick="focusMain();return false;">Zum Inhalt springen</a>
 
 <!-- ===================== NAV ===================== -->
-<nav class="nav">
+<nav class="nav" aria-label="Hauptnavigation">
   <div class="wrap nav-in">
-    <div class="brand" onclick="go('home')">
+    <div class="brand" onclick="go('home')" role="button" tabindex="0" aria-label="Zur Startseite">
       <div class="mark">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#D9B25A" stroke-width="1.6"><path d="M12 3 L20 7 V13 C20 17 16 20 12 21 C8 20 4 17 4 13 V7 Z"/><path d="M12 8 v6 M9 11 h6" stroke-width="1.6"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#D9B25A" stroke-width="1.6" aria-hidden="true"><path d="M12 3 L20 7 V13 C20 17 16 20 12 21 C8 20 4 17 4 13 V7 Z"/><path d="M12 8 v6 M9 11 h6" stroke-width="1.6"/></svg>
       </div>
       <div>
         <b>MSC Lernplattform</b>
         <small>Charité · Modellstudiengang</small>
       </div>
     </div>
-    <div class="nav-links">
-      <a onclick="go('home')">Startseite</a>
-      <a href="#semesters" onclick="go('home')">Semester</a>
-      <a href="#physikum" onclick="go('home')">Physikum</a>
-      <a href="#schnellzugriff" onclick="go('home')">Material</a>
+    <div class="nav-end">
+      <div class="nav-links">
+        <a onclick="go('home')">Startseite</a>
+        <a onclick="go('home','semesters')">Semester</a>
+        <a onclick="go('home','physikum')">Physikum</a>
+        <a onclick="go('home','schnellzugriff')">Material</a>
+      </div>
+      <button class="icon-btn nav-search" id="searchBtn" aria-label="Suchen" aria-haspopup="dialog">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.4-3.4"/></svg>
+        <span class="label">Suchen</span><span class="kbd">⌘K</span>
+      </button>
+      <a class="nav-cta" onclick="go('sem2')">2. Semester →</a>
+      <button class="icon-btn nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu">
+        <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
     </div>
-    <a class="nav-cta" onclick="go('sem2')">2. Semester →</a>
   </div>
 </nav>
+
+<!-- mobile drawer -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="wrap mm-in">
+    <a onclick="go('home')">Startseite <span class="chev">›</span></a>
+    <a onclick="go('home','semesters')">Alle Semester <span class="chev">›</span></a>
+    <a onclick="go('home','physikum')">Physikum erklärt <span class="chev">›</span></a>
+    <a onclick="goTo('sem2','s-material')">Lernmaterial <span class="chev">›</span></a>
+    <a onclick="go('home','schnellzugriff')">Schnellzugriff <span class="chev">›</span></a>
+    <button class="icon-btn mm-cta" onclick="go('sem2')">2. Semester entdecken →</button>
+  </div>
+</div>
+
+<!-- command palette / search -->
+<div class="cmdk-backdrop" id="cmdkBackdrop" role="dialog" aria-modal="true" aria-label="Suche">
+  <div class="cmdk" role="combobox" aria-expanded="true" aria-haspopup="listbox" aria-owns="cmdkResults">
+    <div class="cmdk-top">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.4-3.4"/></svg>
+      <input id="cmdkInput" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"
+        placeholder="Semester, Modul, Prüfung oder Material suchen…" aria-controls="cmdkResults" aria-label="Suchbegriff">
+      <span class="cmdk-esc">ESC</span>
+    </div>
+    <div class="cmdk-results" id="cmdkResults" role="listbox" aria-label="Ergebnisse"></div>
+    <div class="cmdk-foot">
+      <span><span class="k">↑↓</span> navigieren</span>
+      <span><span class="k">↵</span> öffnen</span>
+      <span><span class="k">esc</span> schließen</span>
+    </div>
+  </div>
+</div>
+
+<!-- back to top -->
+<button class="to-top" id="toTop" aria-label="Nach oben scrollen">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+</button>
+
 
 <!-- ===================== HOME ===================== -->
 <div id="home" class="view active">
 
-  <header class="hero">
+  <header class="hero" id="main">
     <div class="wrap hero-in">
       <span class="eyebrow"><span class="dot"></span> Muslimische Hochschulgruppe der Charité</span>
       <h1>Dein Studium, von Studierenden <em>für Studierende</em> gebündelt.</h1>
       <p>Eine Plattform für alle zehn Semester des Modellstudiengangs Medizin – mit Ausarbeitungen, Anki-Decks, Prüfungsprotokollen und ehrlichen Tipps für jede Prüfung.</p>
-      <p class="motto">مَن طَلَبَ العِلمَ وَجَدَ النور</p>
+      <p lang="ar" class="motto">مَن طَلَبَ العِلمَ وَجَدَ النور</p>
       <p class="motto-tr">„Wer das Wissen sucht, findet das Licht.“</p>
       <div class="hero-cta">
         <a class="btn btn-gold" onclick="go('sem2')">2. Semester entdecken
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-ghost" href="#semesters">Alle Semester ansehen</a>
+        <a class="btn btn-ghost" onclick="go('home','semesters')">Alle Semester ansehen</a>
       </div>
     </div>
     <div class="wrap"><div class="strip">
@@ -416,7 +622,7 @@ section{position:relative;z-index:2}
         <div class="scard" onclick="go('soon')">
           <div class="s-num">04<span>· Sem</span></div>
           <div class="s-title">SMPP · Stationsprüfung</div>
-          <div class="s-focus">8 Stationen (4 mündlich, 4 praktisch). Teil 2 des Physikums.</div>
+          <div class="s-focus">8 Stationen (4 mündlich, 4 praktisch). Teil 2 &amp; 3 der Stationsprüfung.</div>
           <div class="s-foot"><span class="tag tag-soon"><span class="pip"></span>In Vorbereitung</span>
             <span class="s-arrow">→</span></div>
         </div>
@@ -518,21 +724,22 @@ section{position:relative;z-index:2}
       <div class="sec-head">
         <div class="kicker">Schnellzugriff</div>
         <h2>Übergreifende Sammlungen</h2>
+        <p class="lead">Springe direkt zu den gebündelten Materialien des 2. Semesters – weitere Semester folgen.</p>
       </div>
       <div class="qa">
-        <div class="qcard" onclick="go('soon')">
+        <div class="qcard" onclick="goTo('sem2','s-material')" aria-label="Altklausuren &amp; Protokolle öffnen">
           <div class="qicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v4H4zM4 12h16v8H4z"/></svg></div>
-          <div><b>Altklausuren</b><p>Gesammelte Klausuren &amp; Gedächtnisprotokolle aller Semester.</p></div>
+          <div><b>Altklausuren &amp; Protokolle</b><p>Gesammelte Klausuren &amp; Gedächtnisprotokolle.</p></div>
         </div>
-        <div class="qcard" onclick="go('soon')">
+        <div class="qcard" onclick="goTo('sem2','s-material')" aria-label="Ausarbeitungen öffnen">
           <div class="qicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h9l5 5v13H6z"/><path d="M15 3v5h5M9 13h6M9 17h6"/></svg></div>
           <div><b>Ausarbeitungen</b><p>Geprüfte Zusammenfassungen, kurz bis ausführlich.</p></div>
         </div>
-        <div class="qcard" onclick="go('soon')">
+        <div class="qcard" onclick="goTo('sem2','s-orga')" aria-label="Organisatorisches öffnen">
           <div class="qicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7l9-4 9 4-9 4z"/><path d="M3 7v6l9 4 9-4V7"/></svg></div>
           <div><b>Allgemeines</b><p>Studienorganisation, Ablaufpläne &amp; Wissenswertes.</p></div>
         </div>
-        <div class="qcard" onclick="go('soon')">
+        <div class="qcard" onclick="goTo('sem2','s-material')" aria-label="Anki-Decks öffnen">
           <div class="qicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 4v16"/></svg></div>
           <div><b>Anki-Decks</b><p>Karteikarten-Sammlungen für jedes Fach.</p></div>
         </div>
@@ -544,22 +751,27 @@ section{position:relative;z-index:2}
   <footer class="foot">
     <div class="wrap foot-in">
       <div>
-        <p class="motto">مَن طَلَبَ العِلمَ وَجَدَ النور</p>
+        <p lang="ar" class="motto">مَن طَلَبَ العِلمَ وَجَدَ النور</p>
         <p>Erstellt mit Hingabe von der MSC – der muslimischen Hochschulgruppe der Charité. Von Studierenden, für Studierende.</p>
       </div>
       <div>
         <h6>Plattform</h6>
         <a onclick="go('home')">Startseite</a>
-        <a href="#semesters" onclick="go('home')">Alle Semester</a>
+        <a onclick="go('home','semesters')">Alle Semester</a>
         <a onclick="go('sem2')">2. Semester</a>
-        <a href="#physikum" onclick="go('home')">Physikum</a>
+        <a onclick="go('home','physikum')">Physikum</a>
       </div>
       <div>
         <h6>Mitmachen</h6>
         <a onclick="go('soon')">Feedback geben</a>
         <a onclick="go('soon')">Material beitragen</a>
-        <a onclick="go('soon')">Fehler melden</a>
+        <a onclick="goTo('sem2','s-orga')">Fehler melden (TIRS)</a>
         <a onclick="go('soon')">Kontakt</a>
+      </div>
+      <div>
+        <h6>Rechtliches</h6>
+        <a onclick="go('legal')">Impressum</a>
+        <a onclick="goTo('legal','dsg')">Datenschutz</a>
       </div>
     </div>
     <div class="wrap foot-bot">
@@ -1161,7 +1373,7 @@ section{position:relative;z-index:2}
   <footer class="foot">
     <div class="wrap foot-bot" style="border:none">
       <span>© 2026 MSC Charité · Von Studierenden, für Studierende</span>
-      <span class="motto" style="font-size:1.05rem;margin:0">مَن طَلَبَ العِلمَ وَجَدَ النور</span>
+      <span lang="ar" class="motto" style="font-size:1.05rem;margin:0">مَن طَلَبَ العِلمَ وَجَدَ النور</span>
     </div>
   </footer>
 </div><!-- /sem2 -->
@@ -1575,7 +1787,7 @@ section{position:relative;z-index:2}
   <footer class="foot">
     <div class="wrap foot-bot" style="border:none">
       <span>© 2026 MSC Charité · Von Studierenden, für Studierende</span>
-      <span class="motto" style="font-size:1.05rem;margin:0">مَن طَلَبَ العِلمَ وَجَدَ النور</span>
+      <span lang="ar" class="motto" style="font-size:1.05rem;margin:0">مَن طَلَبَ العِلمَ وَجَدَ النور</span>
     </div>
   </footer>
 </div><!-- /m05 -->
@@ -1871,7 +2083,7 @@ section{position:relative;z-index:2}
   <footer class="foot">
     <div class="wrap foot-bot" style="border:none">
       <span>© 2026 MSC Charité · Von Studierenden, für Studierende</span>
-      <span class="motto" style="font-size:1.05rem;margin:0">مَن طَلَبَ العِلمَ وَجَدَ النور</span>
+      <span lang="ar" class="motto" style="font-size:1.05rem;margin:0">مَن طَلَبَ العِلمَ وَجَدَ النور</span>
     </div>
   </footer>
 </div><!-- /m06 -->
@@ -2184,7 +2396,7 @@ section{position:relative;z-index:2}
   <footer class="foot">
     <div class="wrap foot-bot" style="border:none">
       <span>© 2026 MSC Charité · Von Studierenden, für Studierende</span>
-      <span class="motto" style="font-size:1.05rem;margin:0">مَن طَلَبَ العِلمَ وَجَدَ النور</span>
+      <span lang="ar" class="motto" style="font-size:1.05rem;margin:0">مَن طَلَبَ العِلمَ وَجَدَ النور</span>
     </div>
   </footer>
 </div><!-- /m07 -->
@@ -2508,7 +2720,7 @@ section{position:relative;z-index:2}
   <footer class="foot">
     <div class="wrap foot-bot" style="border:none">
       <span>© 2026 MSC Charité · Von Studierenden, für Studierende</span>
-      <span class="motto" style="font-size:1.05rem;margin:0">مَن طَلَبَ العِلمَ وَجَدَ النور</span>
+      <span lang="ar" class="motto" style="font-size:1.05rem;margin:0">مَن طَلَبَ العِلمَ وَجَدَ النور</span>
     </div>
   </footer>
 </div><!-- /m08 -->
@@ -2528,6 +2740,98 @@ section{position:relative;z-index:2}
     <a class="btn btn-gold" onclick="go('sem2')" style="color:#241a06">Zum fertigen 2. Semester →</a>
   </div>
   <footer class="foot"><div class="wrap foot-bot" style="border:none"><span>© 2026 MSC Charité</span></div></footer>
+</div>
+
+<!-- ===================== IMPRESSUM & DATENSCHUTZ ===================== -->
+<div id="legal" class="view">
+  <div class="wrap">
+    <div class="crumb"><a onclick="go('home')">Startseite</a> <span>›</span> <b>Impressum &amp; Datenschutz</b></div>
+  </div>
+
+  <header class="wrap det-hero">
+    <span class="det-tag"><span class="pip" style="width:6px;height:6px;border-radius:50%;background:currentColor"></span> Rechtliches</span>
+    <h1>Impressum &amp; Datenschutz</h1>
+    <p class="lead">Eine öffentlich erreichbare Website in Deutschland braucht ein Impressum (§ 5 DDG) und eine Datenschutzerklärung (DSGVO / TDDDG). Die folgenden Vorlagen müssen vor dem öffentlichen Start mit euren echten Angaben ausgefüllt werden.</p>
+    <div class="callout">
+      <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></div>
+      <div><b>Noch auszufüllen.</b>
+        <p>Alle <span style="background:var(--gold-wash);color:#7a571a;padding:1px 6px;border-radius:5px;font-weight:600">[markierten Felder]</span> sind Platzhalter. Tragt verantwortliche Person, Anschrift und Kontakt ein und lasst den Text im Zweifel kurz prüfen (z. B. AStA / Rechtsberatung der Charité).</p></div>
+    </div>
+  </header>
+
+  <div class="wrap det-body">
+    <aside class="toc">
+      <div class="tt">Auf dieser Seite</div>
+      <a href="#imp">Impressum</a>
+      <a href="#dsg">Datenschutzerklärung</a>
+      <a href="#dsg-hosting">Hosting &amp; Server-Logs</a>
+      <a href="#dsg-rechte">Eure Rechte</a>
+    </aside>
+
+    <main class="det-main">
+      <div class="block" id="imp">
+        <h3>Impressum</h3>
+        <p>Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG, seit Mai 2024 Nachfolger des § 5 TMG).</p>
+        <dl class="rows">
+          <div class="row"><dt>Anbieter</dt><dd>MSC – Muslimische Hochschulgruppe der Charité <br><span style="background:var(--gold-wash);color:#7a571a;padding:1px 6px;border-radius:5px">[Rechtsform / Trägerschaft, falls vorhanden]</span></dd></div>
+          <div class="row"><dt>Vertreten durch</dt><dd><span style="background:var(--gold-wash);color:#7a571a;padding:1px 6px;border-radius:5px">[Vor- und Nachname der verantwortlichen Person]</span></dd></div>
+          <div class="row"><dt>Anschrift</dt><dd><span style="background:var(--gold-wash);color:#7a571a;padding:1px 6px;border-radius:5px">[Straße &amp; Hausnr.] · [PLZ] Berlin</span> <br><small style="color:var(--ink-faint)">Eine ladungsfähige Anschrift ist Pflicht – ein Postfach genügt nicht.</small></dd></div>
+          <div class="row"><dt>Kontakt</dt><dd>E-Mail: <span style="background:var(--gold-wash);color:#7a571a;padding:1px 6px;border-radius:5px">[kontakt@…]</span></dd></div>
+          <div class="row"><dt>Verantwortlich i.S.d. § 18 Abs. 2 MStV</dt><dd><span style="background:var(--gold-wash);color:#7a571a;padding:1px 6px;border-radius:5px">[Name, Anschrift wie oben]</span></dd></div>
+        </dl>
+        <p style="font-size:.9rem;color:var(--ink-faint);margin-top:16px">Diese Website ist ein inoffizielles, nicht-kommerzielles studentisches Angebot und steht in keiner offiziellen Verbindung zur Charité – Universitätsmedizin Berlin. Alle verlinkten externen Inhalte liegen in der Verantwortung der jeweiligen Anbieter.</p>
+      </div>
+
+      <div class="block" id="dsg">
+        <h3>Datenschutzerklärung</h3>
+        <p>Verantwortlich für die Datenverarbeitung ist die im Impressum genannte Person. Diese Website verzichtet bewusst auf Tracking, Werbung und Analyse-Cookies.</p>
+        <div class="tips">
+          <div class="tip">
+            <h5>🍪 Keine Cookies &amp; kein Tracking</h5>
+            <ul>
+              <li>Die Seite setzt keine Analyse- oder Werbe-Cookies und bindet keine Tracking-Dienste ein.</li>
+              <li>Es werden keine personenbezogenen Profile gebildet.</li>
+            </ul>
+          </div>
+          <div class="tip">
+            <h5>🔤 Schriftarten</h5>
+            <ul>
+              <li>Aktuell werden Google Fonts über deren Server geladen – dabei wird die IP-Adresse an Google übermittelt.</li>
+              <li><b>Empfehlung:</b> Schriften lokal mitliefern (self-hosting), dann entfällt diese Übermittlung vollständig.</li>
+            </ul>
+          </div>
+          <div class="tip">
+            <h5>🔗 Externe Links</h5>
+            <ul>
+              <li>Material liegt auf <b>SharePoint der Charité</b> (Login nötig) sowie auf Campusnet, Moodle &amp; YouTube.</li>
+              <li>Beim Öffnen gelten die Datenschutzbestimmungen des jeweiligen Anbieters.</li>
+            </ul>
+          </div>
+        </div>
+
+        <p style="font-weight:600;color:var(--teal-900);margin:28px 0 0" id="dsg-hosting">Hosting &amp; Server-Logfiles</p>
+        <dl class="rows">
+          <div class="row"><dt>Hoster</dt><dd><span style="background:var(--gold-wash);color:#7a571a;padding:1px 6px;border-radius:5px">[z. B. Netlify / GitHub Pages / Cloudflare Pages]</span></dd></div>
+          <div class="row"><dt>Server-Logs</dt><dd>Der Hoster verarbeitet technisch notwendige Zugriffsdaten (u. a. IP-Adresse, Zeitpunkt, abgerufene Seite, Browsertyp) zur Auslieferung und Sicherheit. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse).</dd></div>
+          <div class="row"><dt>Auftragsverarbeitung</dt><dd>Mit dem Hoster sollte ein Vertrag zur Auftragsverarbeitung (Art. 28 DSGVO) bestehen.</dd></div>
+        </dl>
+
+        <p style="font-weight:600;color:var(--teal-900);margin:28px 0 0" id="dsg-rechte">Eure Rechte</p>
+        <ul class="lz" style="margin-top:10px">
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg></span>Auskunft, Berichtigung, Löschung &amp; Einschränkung der Verarbeitung (Art. 15–18 DSGVO).</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg></span>Datenübertragbarkeit (Art. 20) und Widerspruch (Art. 21 DSGVO).</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg></span>Beschwerde bei einer Aufsichtsbehörde – zuständig: Berliner Beauftragte für Datenschutz und Informationsfreiheit.</li>
+        </ul>
+        <p style="font-size:.9rem;color:var(--ink-faint);margin-top:16px">Stand: <span style="background:var(--gold-wash);color:#7a571a;padding:1px 6px;border-radius:5px">[Monat JJJJ]</span>. Diese Vorlage ersetzt keine Rechtsberatung.</p>
+      </div>
+
+      <div style="text-align:center;padding:10px 0 30px">
+        <a class="btn btn-gold" onclick="go('home')" style="color:#241a06">← Zurück zur Startseite</a>
+      </div>
+    </main>
+  </div>
+
+  <footer class="foot"><div class="wrap foot-bot" style="border:none"><span>© 2026 MSC Charité</span><span lang="ar" class="motto" style="font-size:1.05rem;margin:0">مَن طَلَبَ العِلمَ وَجَدَ النور</span></div></footer>
 </div>
 
 <script>
@@ -2673,21 +2977,323 @@ function renderMaterial(){
 }
 renderMaterial();
 
-function go(id){
-  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  window.scrollTo({top:0,behavior:'instant' in window ? 'instant':'auto'});
+/* ===================== ROUTING + NAVIGATION + SEARCH + A11Y (added) ===================== */
+const VIEWS = ['home','sem2','m05','m06','m07','m08','soon','legal'];
+const TITLES = {
+  home:'MSC Lernplattform · Charité',
+  sem2:'2. Semester · MSC Lernplattform',
+  m05:'Modul 5 · Wachstum, Gewebe, Organ · MSC',
+  m06:'Modul 6 · Gesundheit und Gesellschaft · MSC',
+  m07:'Modul 7 · Wissenschaftliches Arbeiten · MSC',
+  m08:'Modul 8 · Blut und Immunsystem · MSC',
+  soon:'In Vorbereitung · MSC Lernplattform',
+  legal:'Impressum & Datenschutz · MSC'
+};
+const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function norm(s){
+  return (s||'').toString().toLowerCase()
+    .replace(/ä/g,'a').replace(/ö/g,'o').replace(/ü/g,'u').replace(/ß/g,'ss')
+    .replace(/[·,/&–—_-]/g,' ').replace(/\s+/g,' ').trim();
+}
+
+/* ---- view switching ---- */
+function revealIn(view){
+  if(!view) return;
+  view.querySelectorAll('.block').forEach(function(b){ b.style.opacity=1; b.style.transform='none'; });
+}
+function setActiveView(id){
+  if(VIEWS.indexOf(id)<0 || !document.getElementById(id)) id='home';
+  const view=document.getElementById(id);
+  if(!view.classList.contains('active')){
+    document.querySelectorAll('.view').forEach(function(v){ v.classList.remove('active'); });
+    view.classList.add('active');
+  }
+  document.title = TITLES[id] || TITLES.home;
+  revealIn(view);
+  closeMenu();
+  return view;
+}
+function scrollToAnchor(anchor, smooth){
+  const el=document.getElementById(anchor);
+  if(!el){ window.scrollTo({top:0}); return; }
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){
+    el.scrollIntoView({behavior:(smooth && !prefersReduced)?'smooth':'auto', block:'start'});
+  }); });
+}
+function applyRoute(){
+  const h=location.hash||'';
+  if(h.length>2 && h.charAt(1)==='/'){
+    const parts=h.slice(2).split('/');
+    setActiveView(parts[0]);
+    if(parts[1]) scrollToAnchor(parts[1], true); else window.scrollTo({top:0});
+  } else if(h.length>1){
+    const el=document.getElementById(h.slice(1));
+    if(el){
+      const v=el.closest('.view');
+      setActiveView(v?v.id:'home');
+      scrollToAnchor(h.slice(1), true);
+    } else { setActiveView('home'); window.scrollTo({top:0}); }
+  } else { setActiveView('home'); window.scrollTo({top:0}); }
+}
+function go(id, anchor){
+  const target='#/'+id+(anchor?('/'+anchor):'');
+  if(location.hash===target) applyRoute(); else location.hash=target;
 }
 function goTo(view, anchor){
-  go(view);
   if(anchor){
-    const el = document.getElementById(anchor);
-    if(el) requestAnimationFrame(()=>requestAnimationFrame(()=>el.scrollIntoView({behavior:'smooth'})));
-  }
+    const target='#/'+view+'/'+anchor;
+    if(location.hash===target) applyRoute(); else location.hash=target;
+  } else { go(view); }
 }
-// reveal blocks on scroll (subtle)
-const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity=1;e.target.style.transform='none';io.unobserve(e.target);}})},{threshold:.08});
-document.querySelectorAll('.block').forEach(b=>{b.style.opacity=0;b.style.transform='translateY(16px)';b.style.transition='opacity .6s ease, transform .6s ease';io.observe(b);});
+window.addEventListener('hashchange', applyRoute);
+
+function focusMain(){
+  const v=document.querySelector('.view.active');
+  if(!v) return;
+  const h=v.querySelector('h1,h2,h3,main');
+  if(h){ h.setAttribute('tabindex','-1'); try{h.focus({preventScroll:true});}catch(e){h.focus();} h.scrollIntoView({behavior:'auto',block:'start'}); }
+}
+
+/* ---- mobile drawer ---- */
+function openMenu(){
+  document.body.classList.add('menu-open');
+  document.body.style.overflow='hidden';
+  const t=document.getElementById('navToggle');
+  if(t){ t.setAttribute('aria-expanded','true'); t.setAttribute('aria-label','Menü schließen'); }
+}
+function closeMenu(){
+  document.body.classList.remove('menu-open');
+  document.body.style.overflow='';
+  const t=document.getElementById('navToggle');
+  if(t){ t.setAttribute('aria-expanded','false'); t.setAttribute('aria-label','Menü öffnen'); }
+}
+
+/* ---- command palette / search ---- */
+const SICONS={
+  home:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg>',
+  sem:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>',
+  mod:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5a2 2 0 012-2h12v18H6a2 2 0 01-2-2z"/><path d="M8 3v16"/></svg>',
+  exam:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h9l5 5v13H6z"/><path d="M15 3v5h5M9 13l2 2 4-4"/></svg>',
+  mat:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>',
+  info:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>',
+  tip:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18h6M10 21h4M12 3a6 6 0 00-4 10c1 1 1 2 1 3h6c0-1 0-2 1-3a6 6 0 00-4-10z"/></svg>',
+  scale:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M5 7h14M5 7l-3 6h6zM19 7l3 6h-6z"/></svg>',
+  legal:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h9l5 5v13H6z"/><path d="M9 12h6M9 16h6M9 8h3"/></svg>'
+};
+const NAV_INDEX=[
+  {t:'Startseite', s:'Übersicht & Einstieg', group:'Seiten', ic:'home', view:'home'},
+  {t:'Alle Semester', s:'10 Semester + PJ', group:'Seiten', ic:'sem', view:'home', anchor:'semesters'},
+  {t:'2. Semester – Überblick', s:'Module, Prüfungen, Material', group:'Semester', ic:'sem', view:'sem2', kw:'msm2 vorklinik zweites'},
+  {t:'Modul 5 · Wachstum, Gewebe, Organ', s:'Histologie & Embryologie', group:'Module', ic:'mod', view:'m05', kw:'histologie gewebe embryologie mikroskop m5'},
+  {t:'Modul 6 · Gesundheit und Gesellschaft', s:'MedSoz, MedPsych, Sozialmedizin', group:'Module', ic:'mod', view:'m06', kw:'soziologie psychologie gesellschaft m6'},
+  {t:'Modul 7 · Wissenschaftliches Arbeiten', s:'Statistik, Studientypen, Projekt', group:'Module', ic:'mod', view:'m07', kw:'statistik spss methoden wissenschaft m7'},
+  {t:'Modul 8 · Blut und Immunsystem', s:'Hämatologie, Gerinnung, Immunologie', group:'Module', ic:'mod', view:'m08', kw:'blut immunsystem immunologie haematologie gerinnung m8'},
+  {t:'SMPP · Stationsprüfung', s:'Aufbau, Stationen, Bestehen', group:'Prüfungen', ic:'exam', view:'sem2', anchor:'s-smpp', kw:'osce muendlich praktisch physikum stationen station'},
+  {t:'MC · Abschlussklausur', s:'80 Fragen / 120 Minuten', group:'Prüfungen', ic:'exam', view:'sem2', anchor:'s-mc', kw:'multiple choice klausur mc'},
+  {t:'Bestehen & Notenrechnung', s:'60 % im Mittel – Fallbeispiele', group:'Prüfungen', ic:'scale', view:'sem2', anchor:'s-bestehen', kw:'note prozent bestehen rechnen'},
+  {t:'Offizielle Unterlagen', s:'Campusnet-PDFs & Fragenkataloge', group:'Prüfungen', ic:'info', view:'sem2', anchor:'s-quellen', kw:'rahmenbedingungen fragenkatalog campusnet pdf'},
+  {t:'Lernmaterial', s:'SharePoint: Ausarbeitungen, Anki, Protokolle', group:'Material', ic:'mat', view:'sem2', anchor:'s-material', kw:'sharepoint ordner downloads anki ausarbeitung protokoll buecher'},
+  {t:'Wichtige Termine', s:'Infoveranstaltungen & Fristen', group:'Organisation', ic:'info', view:'sem2', anchor:'s-termine', kw:'termine fristen kalender anmeldung'},
+  {t:'Organisatorisches', s:'Moses, TIRS, Schließfächer', group:'Organisation', ic:'info', view:'sem2', anchor:'s-orga', kw:'moses anwesenheit tirs schliessfach code garderobe'},
+  {t:'Tipps & Empfehlungen (SMPP)', s:'Fach für Fach', group:'Organisation', ic:'tip', view:'sem2', anchor:'s-tipps', kw:'tipps empfehlungen lernen vorbereitung'},
+  {t:'Physikum – wie es funktioniert', s:'Drei Teile, je ein Drittel', group:'Gut zu wissen', ic:'info', view:'home', anchor:'physikum', kw:'physikum aufbau drittel teil'},
+  {t:'Impressum & Datenschutz', s:'Rechtliches', group:'Rechtliches', ic:'legal', view:'legal', kw:'impressum datenschutz dsgvo recht'}
+];
+let cmdkItems=[]; let cmdkActive=0;
+function isSearchOpen(){ const bd=document.getElementById('cmdkBackdrop'); return !!(bd && bd.classList.contains('open')); }
+function openSearch(){
+  const bd=document.getElementById('cmdkBackdrop'); if(!bd) return;
+  bd.classList.add('open');
+  const inp=document.getElementById('cmdkInput');
+  if(inp){ inp.value=''; }
+  renderSearch('');
+  setTimeout(function(){ if(inp) inp.focus(); }, 30);
+}
+function closeSearch(){
+  const bd=document.getElementById('cmdkBackdrop'); if(bd) bd.classList.remove('open');
+}
+function renderSearch(q){
+  const res=document.getElementById('cmdkResults'); if(!res) return;
+  const nq=norm(q);
+  const tokens=nq?nq.split(' '):[];
+  const matches=NAV_INDEX.filter(function(e){
+    if(!tokens.length) return true;
+    const hay=norm(e.t+' '+(e.s||'')+' '+(e.kw||'')+' '+e.group);
+    return tokens.every(function(t){ return hay.indexOf(t)>=0; });
+  });
+  cmdkItems=[]; cmdkActive=0;
+  if(!matches.length){
+    res.innerHTML='<div class="cmdk-empty">Nichts gefunden. Versuch z.&nbsp;B. „Modul", „SMPP" oder „Anki".</div>';
+    return;
+  }
+  const groups={}; const order=[];
+  matches.forEach(function(e){ if(!groups[e.group]){ groups[e.group]=[]; order.push(e.group);} groups[e.group].push(e); });
+  let html=''; let idx=0;
+  order.forEach(function(g){
+    html+='<div class="cmdk-group">'+esc(g)+'</div>';
+    groups[g].forEach(function(e){
+      html+='<div class="cmdk-item" role="option" data-idx="'+idx+'" data-view="'+esc(e.view)+'" data-anchor="'+esc(e.anchor||'')+'">'
+        +'<span class="ci-ic">'+(SICONS[e.ic]||SICONS.info)+'</span>'
+        +'<span><span class="ci-t">'+esc(e.t)+'</span>'+(e.s?'<span class="ci-s">'+esc(e.s)+'</span>':'')+'</span>'
+        +'<span class="ci-arrow">↵</span></div>';
+      cmdkItems.push(e); idx++;
+    });
+  });
+  res.innerHTML=html;
+  const nodes=Array.prototype.slice.call(res.querySelectorAll('.cmdk-item'));
+  nodes.forEach(function(node){
+    node.addEventListener('click', function(){ selectSearch(parseInt(node.getAttribute('data-idx'),10)); });
+    node.addEventListener('mousemove', function(){ setActive(parseInt(node.getAttribute('data-idx'),10)); });
+  });
+  setActive(0);
+}
+function setActive(i){
+  const res=document.getElementById('cmdkResults'); if(!res) return;
+  const nodes=Array.prototype.slice.call(res.querySelectorAll('.cmdk-item'));
+  if(!nodes.length) return;
+  cmdkActive=((i%nodes.length)+nodes.length)%nodes.length;
+  nodes.forEach(function(n){ n.classList.remove('active'); });
+  const act=nodes[cmdkActive];
+  if(act){ act.classList.add('active'); act.scrollIntoView({block:'nearest'}); }
+}
+function selectSearch(i){
+  const e=cmdkItems[i]; if(!e) return;
+  closeSearch();
+  if(e.anchor) goTo(e.view, e.anchor); else go(e.view);
+}
+
+/* ---- build mobile in-page TOC from each desktop aside.toc ---- */
+function buildMobileTOCs(){
+  document.querySelectorAll('.det-body').forEach(function(body){
+    const aside=body.querySelector('aside.toc');
+    const main=body.querySelector('.det-main');
+    if(!aside || !main) return;
+    const links=Array.prototype.slice.call(aside.querySelectorAll('a'));
+    if(!links.length) return;
+    const det=document.createElement('details');
+    det.className='toc-mobile';
+    const sum=document.createElement('summary');
+    sum.innerHTML='<span>Auf dieser Seite</span><span class="tm-ic" aria-hidden="true">▾</span>';
+    det.appendChild(sum);
+    const wrap=document.createElement('div'); wrap.className='tm-links';
+    links.forEach(function(a){
+      const na=document.createElement('a');
+      na.textContent=a.textContent;
+      na.setAttribute('href', a.getAttribute('href'));
+      na.addEventListener('click', function(){ det.removeAttribute('open'); });
+      wrap.appendChild(na);
+    });
+    det.appendChild(wrap);
+    main.insertBefore(det, main.firstChild);
+  });
+}
+
+/* ---- scrollspy: highlight current section in TOC (desktop + mobile) ---- */
+function setupScrollspy(){
+  let ticking=false;
+  function update(){
+    ticking=false;
+    const view=document.querySelector('.view.active');
+    if(!view) return;
+    const aside=view.querySelector('aside.toc');
+    if(!aside) return;
+    const targets=[];
+    aside.querySelectorAll('a[href^="#"]').forEach(function(a){
+      const id=a.getAttribute('href').slice(1);
+      const el=document.getElementById(id);
+      if(el) targets.push({id:id, top:el.getBoundingClientRect().top});
+    });
+    if(!targets.length) return;
+    const offset=130;
+    let current=targets[0].id;
+    targets.forEach(function(t){ if(t.top-offset<=0) current=t.id; });
+    const links=Array.prototype.slice.call(view.querySelectorAll('aside.toc a[href^="#"], .toc-mobile a[href^="#"]'));
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+current); });
+  }
+  window.addEventListener('scroll', function(){ if(!ticking){ ticking=true; requestAnimationFrame(update); } }, {passive:true});
+  window.addEventListener('hashchange', function(){ requestAnimationFrame(update); });
+  requestAnimationFrame(update);
+}
+
+/* ---- make every onclick element keyboard-accessible ---- */
+function enhanceA11y(){
+  document.querySelectorAll('[onclick]').forEach(function(el){
+    const tag=el.tagName.toLowerCase();
+    const isNative = tag==='button' || (tag==='a' && el.hasAttribute('href'));
+    if(isNative) return;
+    if(!el.hasAttribute('role')) el.setAttribute('role', tag==='a' ? 'link' : 'button');
+    if(!el.hasAttribute('tabindex')) el.setAttribute('tabindex','0');
+    el.addEventListener('keydown', function(e){
+      if(e.key==='Enter' || e.key===' ' || e.key==='Spacebar'){ e.preventDefault(); el.click(); }
+    });
+  });
+}
+
+/* ---- reveal-on-scroll (respects reduced motion) ---- */
+function setupReveal(){
+  if(prefersReduced || !('IntersectionObserver' in window)){
+    document.querySelectorAll('.block').forEach(function(b){ b.style.opacity=1; b.style.transform='none'; });
+    return;
+  }
+  const io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.style.opacity=1; e.target.style.transform='none'; io.unobserve(e.target); } });
+  },{threshold:.06});
+  document.querySelectorAll('.block').forEach(function(b){
+    b.style.opacity=0; b.style.transform='translateY(16px)';
+    b.style.transition='opacity .6s ease, transform .6s ease';
+    io.observe(b);
+  });
+}
+
+/* ---- wire everything ---- */
+function initUI(){
+  const navToggle=document.getElementById('navToggle');
+  if(navToggle){ navToggle.addEventListener('click', function(){
+    document.body.classList.contains('menu-open') ? closeMenu() : openMenu();
+  }); }
+  const searchBtn=document.getElementById('searchBtn');
+  if(searchBtn){ searchBtn.addEventListener('click', openSearch); }
+  const inp=document.getElementById('cmdkInput');
+  if(inp){ inp.addEventListener('input', function(){ renderSearch(inp.value); }); }
+  const bd=document.getElementById('cmdkBackdrop');
+  if(bd){ bd.addEventListener('click', function(e){ if(e.target===bd) closeSearch(); }); }
+  const tt=document.getElementById('toTop');
+  if(tt){
+    tt.addEventListener('click', function(){ window.scrollTo({top:0, behavior:prefersReduced?'auto':'smooth'}); });
+    window.addEventListener('scroll', function(){ tt.classList.toggle('show', window.scrollY>600); }, {passive:true});
+  }
+  // platform-correct shortcut label
+  const isMac=/Mac|iPhone|iPad|iPod/i.test((navigator.platform||'')+(navigator.userAgent||''));
+  if(!isMac){ const k=document.querySelector('.nav-search .kbd'); if(k) k.textContent='Strg K'; }
+  // global keyboard
+  document.addEventListener('keydown', function(e){
+    if((e.metaKey||e.ctrlKey) && (e.key==='k'||e.key==='K')){ e.preventDefault(); isSearchOpen()?closeSearch():openSearch(); return; }
+    if(e.key==='/' && !isSearchOpen()){
+      const a=document.activeElement; const tg=(a && a.tagName ? a.tagName.toLowerCase() : '');
+      if(tg!=='input' && tg!=='textarea' && !(a && a.isContentEditable)){ e.preventDefault(); openSearch(); return; }
+    }
+    if(isSearchOpen()){
+      if(e.key==='Escape'){ e.preventDefault(); closeSearch(); }
+      else if(e.key==='ArrowDown'){ e.preventDefault(); setActive(cmdkActive+1); }
+      else if(e.key==='ArrowUp'){ e.preventDefault(); setActive(cmdkActive-1); }
+      else if(e.key==='Enter'){ e.preventDefault(); selectSearch(cmdkActive); }
+      return;
+    }
+    if(e.key==='Escape' && document.body.classList.contains('menu-open')){ closeMenu(); }
+  });
+  // close drawer if resized to desktop
+  window.addEventListener('resize', function(){
+    if(window.innerWidth>760 && document.body.classList.contains('menu-open')) closeMenu();
+  });
+}
+
+buildMobileTOCs();
+enhanceA11y();
+initUI();
+setupReveal();
+setupScrollspy();
+applyRoute();
 </script>
 </body>
 </html>
